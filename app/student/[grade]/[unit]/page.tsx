@@ -5,10 +5,12 @@ import NavBar from "@/components/NavBar";
 import SpeakButton from "@/components/SpeakButton";
 import { useLanguage } from "@/components/LanguageContext";
 import grade1 from "@/data/grade1";
+import grade2 from "@/data/grade2";
 import { GradeReading, ReadingUnit, ReadingQuestion } from "@/data/types";
 
 const gradeData: Record<string, GradeReading> = {
   "1": grade1,
+  "2": grade2,
 };
 
 type Tab = "vocab" | "lesson" | "exercises" | "quiz";
