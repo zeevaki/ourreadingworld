@@ -1,65 +1,96 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useRouter } from "next/navigation";
+import { useLanguage, Language } from "@/components/LanguageContext";
+
+export default function LandingPage() {
+  const { setLanguage, setMode } = useLanguage();
+  const router = useRouter();
+
+  function choose(lang: Language, mode: "student" | "teacher") {
+    setLanguage(lang);
+    setMode(mode);
+    router.push(mode === "student" ? "/student" : "/teacher");
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main
+      className="min-h-screen flex flex-col items-center justify-center px-6 py-12 relative"
+      style={{
+        backgroundImage: "url('/kashmir.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(255,255,255,0.22)" }} />
+
+      <div className="relative z-10 flex flex-col items-center w-full">
+        <div className="text-center mb-10">
+          <h1
+            className="text-6xl font-black mb-2"
+            style={{ color: "#ffffff", textShadow: "0 2px 16px rgba(4,120,87,0.7), 0 1px 4px rgba(0,0,0,0.4)" }}
+          >
+            OurReadingWorld
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="font-bold text-lg" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+            Science of Reading · Grades 1–5
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <p className="text-center font-bold text-base mb-5" style={{ color: "#ffffff", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+          Choose your language pair to get started
+        </p>
+
+        <div className="w-full max-w-lg grid grid-cols-2 gap-5">
+          <div className="bg-white/65 backdrop-blur-sm rounded-2xl p-5 shadow-md text-center border border-white/40 hover:bg-white/75 transition-all">
+            <h2 className="text-lg font-black mb-1" style={{ color: "#4ade80" }}>
+              English + Spanish
+            </h2>
+            <p className="text-white/95 text-xs mb-4 font-semibold">Inglés + Español</p>
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={() => choose("es", "student")}
+                className="w-full bg-primary/80 text-white font-bold py-2 rounded-xl hover:bg-primary transition-colors text-sm cursor-pointer"
+              >
+                I&apos;m a Student
+              </button>
+              <button
+                onClick={() => choose("es", "teacher")}
+                className="w-full bg-white/50 border border-primary/60 font-bold py-2 rounded-xl hover:bg-white/70 transition-colors text-sm cursor-pointer"
+                style={{ color: "#059669" }}
+              >
+                I&apos;m a Teacher
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white/65 backdrop-blur-sm rounded-2xl p-5 shadow-md text-center border border-white/40 hover:bg-white/75 transition-all">
+            <h2 className="text-lg font-black mb-1" style={{ color: "#38bdf8" }}>
+              English + Urdu
+            </h2>
+            <p className="text-white/95 text-xs mb-4 font-semibold" dir="rtl">انگریزی + اردو</p>
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={() => choose("ur", "student")}
+                className="w-full bg-accent/80 text-white font-bold py-2 rounded-xl hover:bg-accent transition-colors text-sm cursor-pointer"
+              >
+                I&apos;m a Student
+              </button>
+              <button
+                onClick={() => choose("ur", "teacher")}
+                className="w-full bg-white/50 border border-accent/60 font-bold py-2 rounded-xl hover:bg-white/70 transition-colors text-sm cursor-pointer"
+                style={{ color: "#0EA5E9" }}
+              >
+                I&apos;m a Teacher
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+
+        <p className="text-xs mt-6 font-semibold" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
+          Your choice is saved — you won&apos;t need to pick again next time.
+        </p>
+      </div>
+    </main>
   );
 }
