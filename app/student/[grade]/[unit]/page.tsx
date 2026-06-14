@@ -13,10 +13,6 @@ const gradeData: Record<string, GradeReading> = {
 
 type Tab = "vocab" | "lesson" | "exercises" | "quiz";
 
-const langCode: Record<string, string> = {
-  es: "es-MX",
-  ur: "ur-PK",
-};
 
 function renderLines(text: string) {
   return text.split("\n").filter(Boolean).map((line, i) => {
@@ -46,7 +42,6 @@ function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
                 <span className="text-base font-bold text-primary" dir={lang === "ur" ? "rtl" : undefined}>
                   {lang === "es" ? word.translation.es : word.translation.ur}
                 </span>
-                <SpeakButton text={lang === "es" ? word.translation.es : word.translation.ur} lang={langCode[lang]} size="sm" />
               </div>
             </div>
           </div>
@@ -57,9 +52,8 @@ function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
               <p className="text-gray-800 text-sm font-semibold flex-1">{word.definition.en}</p>
               <SpeakButton text={word.definition.en} lang="en-US" size="sm" />
             </div>
-            <div className="flex items-start gap-2 mt-1">
-              <p className="text-gray-500 text-sm flex-1" dir={lang === "ur" ? "rtl" : undefined}>{word.definition[lang]}</p>
-              <SpeakButton text={word.definition[lang]} lang={langCode[lang]} size="sm" />
+            <div className="mt-1">
+              <p className="text-gray-500 text-sm" dir={lang === "ur" ? "rtl" : undefined}>{word.definition[lang]}</p>
             </div>
           </div>
 
@@ -69,9 +63,8 @@ function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
               <p className="text-gray-600 text-xs italic flex-1">{word.exampleSentence.en}</p>
               <SpeakButton text={word.exampleSentence.en} lang="en-US" size="sm" />
             </div>
-            <div className="flex items-start gap-2 mt-1">
-              <p className="text-gray-400 text-xs italic flex-1" dir={lang === "ur" ? "rtl" : undefined}>{word.exampleSentence[lang]}</p>
-              <SpeakButton text={word.exampleSentence[lang]} lang={langCode[lang]} size="sm" />
+            <div className="mt-1">
+              <p className="text-gray-400 text-xs italic" dir={lang === "ur" ? "rtl" : undefined}>{word.exampleSentence[lang]}</p>
             </div>
           </div>
         </div>
@@ -95,7 +88,6 @@ function LessonTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
           <span className="text-xs font-bold text-accent uppercase tracking-wide">
             {lang === "es" ? "Español" : "اردو"}
           </span>
-          <SpeakButton text={unit.lesson[lang].replace(/\*\*/g, "").replace(/\*/g, "").replace(/•/g, "").replace(/\n/g, " ")} lang={langCode[lang]} size="sm" />
         </div>
         <div className="text-gray-700" dir={lang === "ur" ? "rtl" : undefined}>
           {renderLines(unit.lesson[lang])}
@@ -123,9 +115,8 @@ function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: 
               <p className="font-bold text-gray-800 text-sm flex-1">{qi + 1}. {q.prompt.en}</p>
               <SpeakButton text={q.prompt.en} lang="en-US" size="sm" />
             </div>
-            <div className="flex items-start gap-2 mt-1">
-              <p className="text-gray-500 text-sm flex-1" dir={lang === "ur" ? "rtl" : undefined}>{q.prompt[lang]}</p>
-              <SpeakButton text={q.prompt[lang]} lang={langCode[lang]} size="sm" />
+            <div className="mt-1">
+              <p className="text-gray-500 text-sm" dir={lang === "ur" ? "rtl" : undefined}>{q.prompt[lang]}</p>
             </div>
           </div>
 
