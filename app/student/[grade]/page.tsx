@@ -6,11 +6,13 @@ import NavBar from "@/components/NavBar";
 import { useLanguage } from "@/components/LanguageContext";
 import grade1 from "@/data/grade1";
 import grade2 from "@/data/grade2";
+import grade3 from "@/data/grade3";
 import { GradeReading } from "@/data/types";
 
 const gradeData: Record<string, GradeReading> = {
   "1": grade1,
   "2": grade2,
+  "3": grade3,
 };
 
 const pillarColors: Record<string, string> = {
