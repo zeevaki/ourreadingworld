@@ -8,6 +8,7 @@ import grade1 from "@/data/grade1";
 import grade2 from "@/data/grade2";
 import grade3 from "@/data/grade3";
 import grade4 from "@/data/grade4";
+import grade5 from "@/data/grade5";
 import { GradeReading } from "@/data/types";
 
 const gradeData: Record<string, GradeReading> = {
@@ -15,6 +16,7 @@ const gradeData: Record<string, GradeReading> = {
   "2": grade2,
   "3": grade3,
   "4": grade4,
+  "5": grade5,
 };
 
 const pillarColors: Record<string, string> = {
