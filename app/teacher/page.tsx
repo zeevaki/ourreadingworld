@@ -4,9 +4,10 @@ import NavBar from "@/components/NavBar";
 import grade1 from "@/data/grade1";
 import grade2 from "@/data/grade2";
 import grade3 from "@/data/grade3";
+import grade4 from "@/data/grade4";
 import { GradeReading } from "@/data/types";
 
-const allGrades: GradeReading[] = [grade1, grade2, grade3];
+const allGrades: GradeReading[] = [grade1, grade2, grade3, grade4];
 
 const pillarColors: Record<string, string> = {
   "phonemic-awareness": "#8B5CF6",
