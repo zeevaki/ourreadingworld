@@ -14,7 +14,7 @@ export default function CommunityPage() {
 
         <div className="bg-white rounded-2xl shadow border border-gray-100 overflow-hidden">
           <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLScH8V8WrVcJH2JRbv1d7CzgfjxF3gXJSvOqJg0lu1C-A60esQ/viewform?embedded=true"
+            src="https://docs.google.com/forms/d/e/1FAIpQLScJs6HMEKX5o5CetndzP0gqD5dnFeX7tIzpU1WCI7vCEsQTtQ/viewform?embedded=true"
             width="100%"
             height="1010"
             style={{ border: "none" }}
