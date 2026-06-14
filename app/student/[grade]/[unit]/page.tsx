@@ -4,7 +4,7 @@ import { use, useState } from "react";
 import NavBar from "@/components/NavBar";
 import { useLanguage } from "@/components/LanguageContext";
 import grade1 from "@/data/grade1";
-import { GradeReading, ReadingUnit, ReadingQuestion } from "@/data/types";
+import { GradeReading, ReadingUnit, ReadingQuestion, BilingualText } from "@/data/types";
 
 const gradeData: Record<string, GradeReading> = {
   "1": grade1,
@@ -12,47 +12,84 @@ const gradeData: Record<string, GradeReading> = {
 
 type Tab = "vocab" | "lesson" | "exercises" | "quiz";
 
-function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "en" | "es" | "ur" }) {
+function renderLines(text: string) {
+  return text.split("\n").filter(Boolean).map((line, i) => {
+    const cleaned = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/\*(.*?)\*/g, "<em>$1</em>");
+    if (line.startsWith("• ") || line.startsWith("- ")) {
+      return <li key={i} className="ml-4 mb-1 text-sm" dangerouslySetInnerHTML={{ __html: cleaned.slice(2) }} />;
+    }
+    if (/^\d+\. /.test(line)) {
+      return <li key={i} className="ml-4 list-decimal mb-1 text-sm" dangerouslySetInnerHTML={{ __html: cleaned.replace(/^\d+\. /, "") }} />;
+    }
+    return <p key={i} className="mb-2 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: cleaned }} />;
+  });
+}
+
+function BiText({ field, lang, enClass = "text-gray-800", secClass = "text-gray-500", rtl }: {
+  field: BilingualText;
+  lang: "es" | "ur";
+  enClass?: string;
+  secClass?: string;
+  rtl?: boolean;
+}) {
+  return (
+    <div className="flex flex-col gap-0.5">
+      <span className={enClass}>{field.en}</span>
+      <span className={secClass} dir={rtl ? "rtl" : undefined}>{field[lang]}</span>
+    </div>
+  );
+}
+
+function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
   return (
     <div className="grid gap-4">
       {unit.vocabulary.map((word) => (
         <div key={word.id} className="bg-white rounded-2xl p-4 shadow border border-gray-100">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3 mb-3">
             <span className="text-3xl">{word.emoji}</span>
             <div>
-              <span className="text-xl font-black text-gray-800">{word.word}</span>
-              <span className="ml-2 text-sm font-semibold text-gray-400">
-                {lang === "es" ? word.translation.es : lang === "ur" ? word.translation.ur : ""}
-              </span>
+              <div className="flex items-baseline gap-2">
+                <span className="text-xl font-black text-gray-800">{word.word}</span>
+                <span className="text-base font-bold text-primary" dir={lang === "ur" ? "rtl" : undefined}>
+                  {lang === "es" ? word.translation.es : word.translation.ur}
+                </span>
+              </div>
             </div>
           </div>
-          <p className="text-gray-700 text-sm mb-1">{word.definition[lang]}</p>
-          <p className="text-gray-500 text-xs italic">{word.exampleSentence[lang]}</p>
+          <div className="mb-2">
+            <p className="text-gray-800 text-sm font-semibold">{word.definition.en}</p>
+            <p className="text-gray-500 text-sm mt-0.5" dir={lang === "ur" ? "rtl" : undefined}>{word.definition[lang]}</p>
+          </div>
+          <div className="border-t border-gray-100 pt-2 mt-2">
+            <p className="text-gray-600 text-xs italic">{word.exampleSentence.en}</p>
+            <p className="text-gray-400 text-xs italic mt-0.5" dir={lang === "ur" ? "rtl" : undefined}>{word.exampleSentence[lang]}</p>
+          </div>
         </div>
       ))}
     </div>
   );
 }
 
-function LessonTab({ unit, lang }: { unit: ReadingUnit; lang: "en" | "es" | "ur" }) {
-  const lines = unit.lesson[lang].split("\n").filter(Boolean);
+function LessonTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow border border-gray-100">
-      {lines.map((line, i) => {
-        const cleaned = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/\*(.*?)\*/g, "<em>$1</em>");
-        if (line.startsWith("• ") || line.startsWith("- ")) {
-          return <li key={i} className="ml-4 text-gray-700 mb-1 text-sm" dangerouslySetInnerHTML={{ __html: cleaned.slice(2) }} />;
-        }
-        if (line.startsWith("1. ") || line.startsWith("2. ") || line.startsWith("3. ")) {
-          return <li key={i} className="ml-4 list-decimal text-gray-700 mb-1 text-sm" dangerouslySetInnerHTML={{ __html: cleaned.slice(3) }} />;
-        }
-        return <p key={i} className="text-gray-700 mb-3 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: cleaned }} />;
-      })}
+    <div className="flex flex-col gap-4">
+      <div className="bg-white rounded-2xl p-5 shadow border border-gray-100">
+        <div className="text-xs font-bold text-primary uppercase tracking-wide mb-3">English</div>
+        <div className="text-gray-800">{renderLines(unit.lesson.en)}</div>
+      </div>
+      <div className="bg-white rounded-2xl p-5 shadow border border-gray-100">
+        <div className="text-xs font-bold text-accent uppercase tracking-wide mb-3">
+          {lang === "es" ? "Español" : "اردو"}
+        </div>
+        <div className="text-gray-700" dir={lang === "ur" ? "rtl" : undefined}>
+          {renderLines(unit.lesson[lang])}
+        </div>
+      </div>
     </div>
   );
 }
 
-function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: "en" | "es" | "ur" }) {
+function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: "es" | "ur" }) {
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -64,9 +101,10 @@ function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: 
     <div>
       {questions.map((q, qi) => (
         <div key={q.id} className="bg-white rounded-2xl p-4 shadow border border-gray-100 mb-4">
-          <p className="font-bold text-gray-800 mb-3 text-sm">
-            {qi + 1}. {q.prompt[lang]}
-          </p>
+          <div className="mb-3">
+            <p className="font-bold text-gray-800 text-sm">{qi + 1}. {q.prompt.en}</p>
+            <p className="text-gray-500 text-sm mt-0.5" dir={lang === "ur" ? "rtl" : undefined}>{q.prompt[lang]}</p>
+          </div>
           <div className="grid gap-2">
             {q.choices.map((choice, ci) => {
               let bg = "bg-gray-50 border-gray-200";
@@ -81,9 +119,10 @@ function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: 
                   key={ci}
                   disabled={submitted}
                   onClick={() => !submitted && setAnswers({ ...answers, [q.id]: ci })}
-                  className={`text-left px-4 py-2 rounded-xl border-2 text-sm font-semibold transition-colors cursor-pointer ${bg}`}
+                  className={`text-left px-4 py-2 rounded-xl border-2 text-sm transition-colors cursor-pointer ${bg}`}
                 >
-                  {choice[lang]}
+                  <span className="font-semibold text-gray-800 block">{choice.en}</span>
+                  <span className="text-gray-500 text-xs" dir={lang === "ur" ? "rtl" : undefined}>{choice[lang]}</span>
                 </button>
               );
             })}
@@ -97,18 +136,16 @@ function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: 
           disabled={Object.keys(answers).length < questions.length}
           className="w-full bg-primary text-white font-black py-3 rounded-2xl hover:bg-primary-dark transition-colors disabled:opacity-40 cursor-pointer"
         >
-          {lang === "ur" ? "جمع کرائیں" : lang === "es" ? "Enviar" : "Submit"}
+          Submit / {lang === "ur" ? "جمع کرائیں" : "Enviar"}
         </button>
       ) : (
         <div className="text-center mt-4">
-          <p className="text-2xl font-black text-gray-800">
-            {score}/{questions.length} ⭐
-          </p>
+          <p className="text-2xl font-black text-gray-800">{score}/{questions.length} ⭐</p>
           <button
             onClick={() => { setAnswers({}); setSubmitted(false); }}
             className="mt-3 bg-accent text-white font-bold px-6 py-2 rounded-xl hover:opacity-90 transition cursor-pointer text-sm"
           >
-            {lang === "ur" ? "دوبارہ کوشش کریں" : lang === "es" ? "Intentar de nuevo" : "Try Again"}
+            Try Again / {lang === "ur" ? "دوبارہ کوشش کریں" : "Intentar de nuevo"}
           </button>
         </div>
       )}
@@ -119,7 +156,7 @@ function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: 
 export default function UnitPage({ params }: { params: Promise<{ grade: string; unit: string }> }) {
   const { grade, unit: unitId } = use(params);
   const { language } = useLanguage();
-  const lang = (language ?? "es") as "en" | "es" | "ur";
+  const lang = (language ?? "es") as "es" | "ur";
   const [tab, setTab] = useState<Tab>("vocab");
 
   const gradeInfo = gradeData[grade];
@@ -136,11 +173,11 @@ export default function UnitPage({ params }: { params: Promise<{ grade: string; 
     );
   }
 
-  const tabs: { id: Tab; label: Record<string, string>; emoji: string }[] = [
-    { id: "vocab", label: { en: "Vocabulary", es: "Vocabulario", ur: "الفاظ" }, emoji: "📝" },
-    { id: "lesson", label: { en: "Lesson", es: "Lección", ur: "سبق" }, emoji: "📖" },
-    { id: "exercises", label: { en: "Exercises", es: "Ejercicios", ur: "مشقیں" }, emoji: "✏️" },
-    { id: "quiz", label: { en: "Quiz", es: "Prueba", ur: "کوئز" }, emoji: "⭐" },
+  const tabs: { id: Tab; enLabel: string; secLabel: string; emoji: string }[] = [
+    { id: "vocab", enLabel: "Vocabulary", secLabel: lang === "ur" ? "الفاظ" : "Vocabulario", emoji: "📝" },
+    { id: "lesson", enLabel: "Lesson", secLabel: lang === "ur" ? "سبق" : "Lección", emoji: "📖" },
+    { id: "exercises", enLabel: "Exercises", secLabel: lang === "ur" ? "مشقیں" : "Ejercicios", emoji: "✏️" },
+    { id: "quiz", enLabel: "Quiz", secLabel: lang === "ur" ? "کوئز" : "Prueba", emoji: "⭐" },
   ];
 
   return (
@@ -148,11 +185,14 @@ export default function UnitPage({ params }: { params: Promise<{ grade: string; 
       <NavBar />
       <main className="flex-1 px-4 py-8 max-w-2xl mx-auto w-full">
         <div className="mb-1 text-xs font-bold text-gray-400 uppercase tracking-wide">
-          {unit.pillarLabel[lang]} · {unit.teks}
+          {unit.pillarLabel.en} · {unit.pillarLabel[lang]} · {unit.teks}
         </div>
         <div className="flex items-center gap-2 mb-6">
           <span className="text-3xl">{unit.emoji}</span>
-          <h1 className="text-3xl font-black text-gray-800">{unit.title[lang]}</h1>
+          <div>
+            <h1 className="text-2xl font-black text-gray-800 leading-tight">{unit.title.en}</h1>
+            <p className="text-base font-bold text-gray-500" dir={lang === "ur" ? "rtl" : undefined}>{unit.title[lang]}</p>
+          </div>
         </div>
 
         <div className="flex gap-2 mb-6 flex-wrap">
@@ -160,11 +200,12 @@ export default function UnitPage({ params }: { params: Promise<{ grade: string; 
             <button
               key={t.id}
               onClick={() => setTab(t.id)}
-              className={`px-4 py-2 rounded-xl font-bold text-sm cursor-pointer transition-colors ${
+              className={`px-4 py-2 rounded-xl font-bold text-xs cursor-pointer transition-colors text-center ${
                 tab === t.id ? "bg-primary text-white shadow" : "bg-white text-gray-600 border border-gray-200 hover:border-primary"
               }`}
             >
-              {t.emoji} {t.label[lang]}
+              <span className="block">{t.emoji} {t.enLabel}</span>
+              <span className="block opacity-80" dir={lang === "ur" ? "rtl" : undefined}>{t.secLabel}</span>
             </button>
           ))}
         </div>

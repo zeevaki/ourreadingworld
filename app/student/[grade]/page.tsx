@@ -86,7 +86,8 @@ export default function GradePage({ params }: { params: Promise<{ grade: string 
                       <span className="text-2xl">{unit.emoji}</span>
                       <span className="text-xs font-bold text-gray-500">{unit.teks}</span>
                     </div>
-                    <div className="font-black text-gray-800">{unit.title[lang]}</div>
+                    <div className="font-black text-gray-800 text-sm">{unit.title.en}</div>
+                    <div className="font-semibold text-gray-500 text-xs mt-0.5" dir={lang === "ur" ? "rtl" : undefined}>{unit.title[lang]}</div>
                   </button>
                 ))}
               </div>
