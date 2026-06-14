@@ -14,6 +14,39 @@ const gradeData: Record<string, GradeReading> = {
 type Tab = "vocab" | "lesson" | "exercises" | "quiz";
 
 
+function cleanForTTS(text: string): string {
+  return text
+    .replace(/\*\*/g, "")
+    .replace(/\*/g, "")
+    .replace(/•/g, "")
+    // phonetic slash notation → spoken sounds
+    .replace(/\/a\//g, "ahh")
+    .replace(/\/e\//g, "ehh")
+    .replace(/\/i\//g, "ihh")
+    .replace(/\/o\//g, "ohh")
+    .replace(/\/u\//g, "uhh")
+    .replace(/\/b\//g, "buh")
+    .replace(/\/p\//g, "puh")
+    .replace(/\/t\//g, "tuh")
+    .replace(/\/d\//g, "duh")
+    .replace(/\/k\//g, "kuh")
+    .replace(/\/g\//g, "guh")
+    .replace(/\/m\//g, "muh")
+    .replace(/\/n\//g, "nuh")
+    .replace(/\/s\//g, "sss")
+    .replace(/\/f\//g, "fff")
+    .replace(/\/l\//g, "lll")
+    .replace(/\/r\//g, "rrr")
+    .replace(/\/h\//g, "huh")
+    .replace(/\/w\//g, "wuh")
+    // punctuation that sounds bad when read aloud
+    .replace(/—/g, ", ")
+    .replace(/[""]/g, "")
+    .replace(/\n/g, " ")
+    .replace(/  +/g, " ")
+    .trim();
+}
+
 function renderLines(text: string) {
   return text.split("\n").filter(Boolean).map((line, i) => {
     const cleaned = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/\*(.*?)\*/g, "<em>$1</em>");
@@ -38,7 +71,7 @@ function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-xl font-black text-gray-800">{word.word}</span>
-                <SpeakButton text={word.word} lang="en-US" size="sm" />
+                <SpeakButton text={cleanForTTS(word.word)} lang="en-US" size="sm" />
                 <span className="text-base font-bold text-primary" dir={lang === "ur" ? "rtl" : undefined}>
                   {lang === "es" ? word.translation.es : word.translation.ur}
                 </span>
@@ -50,7 +83,7 @@ function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
           <div className="mb-2">
             <div className="flex items-start gap-2">
               <p className="text-gray-800 text-sm font-semibold flex-1">{word.definition.en}</p>
-              <SpeakButton text={word.definition.en} lang="en-US" size="sm" />
+              <SpeakButton text={cleanForTTS(word.definition.en)} lang="en-US" size="sm" />
             </div>
             <div className="mt-1">
               <p className="text-gray-500 text-sm" dir={lang === "ur" ? "rtl" : undefined}>{word.definition[lang]}</p>
@@ -61,7 +94,7 @@ function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
           <div className="border-t border-gray-100 pt-2 mt-2">
             <div className="flex items-start gap-2">
               <p className="text-gray-600 text-xs italic flex-1">{word.exampleSentence.en}</p>
-              <SpeakButton text={word.exampleSentence.en} lang="en-US" size="sm" />
+              <SpeakButton text={cleanForTTS(word.exampleSentence.en)} lang="en-US" size="sm" />
             </div>
             <div className="mt-1">
               <p className="text-gray-400 text-xs italic" dir={lang === "ur" ? "rtl" : undefined}>{word.exampleSentence[lang]}</p>
@@ -79,7 +112,7 @@ function LessonTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
       <div className="bg-white rounded-2xl p-5 shadow border border-gray-100">
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs font-bold text-primary uppercase tracking-wide">English</span>
-          <SpeakButton text={unit.lesson.en.replace(/\*\*/g, "").replace(/\*/g, "").replace(/•/g, "").replace(/\n/g, " ")} lang="en-US" size="sm" />
+          <SpeakButton text={cleanForTTS(unit.lesson.en)} lang="en-US" size="sm" />
         </div>
         <div className="text-gray-800">{renderLines(unit.lesson.en)}</div>
       </div>
@@ -113,7 +146,7 @@ function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: 
           <div className="mb-3">
             <div className="flex items-start gap-2">
               <p className="font-bold text-gray-800 text-sm flex-1">{qi + 1}. {q.prompt.en}</p>
-              <SpeakButton text={q.prompt.en} lang="en-US" size="sm" />
+              <SpeakButton text={cleanForTTS(q.prompt.en)} lang="en-US" size="sm" />
             </div>
             <div className="mt-1">
               <p className="text-gray-500 text-sm" dir={lang === "ur" ? "rtl" : undefined}>{q.prompt[lang]}</p>
@@ -140,7 +173,7 @@ function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: 
                     <span className="font-semibold text-gray-800 text-sm block">{choice.en}</span>
                     <span className="text-gray-500 text-xs" dir={lang === "ur" ? "rtl" : undefined}>{choice[lang]}</span>
                   </button>
-                  <SpeakButton text={choice.en} lang="en-US" size="sm" />
+                  <SpeakButton text={cleanForTTS(choice.en)} lang="en-US" size="sm" />
                 </div>
               );
             })}
@@ -211,7 +244,7 @@ export default function UnitPage({ params }: { params: Promise<{ grade: string; 
             <h1 className="text-2xl font-black text-gray-800 leading-tight">{unit.title.en}</h1>
             <p className="text-base font-bold text-gray-500" dir={lang === "ur" ? "rtl" : undefined}>{unit.title[lang]}</p>
           </div>
-          <SpeakButton text={unit.title.en} lang="en-US" />
+          <SpeakButton text={cleanForTTS(unit.title.en)} lang="en-US" />
         </div>
 
         <div className="flex gap-2 mb-6 flex-wrap">
