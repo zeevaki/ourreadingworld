@@ -22,7 +22,7 @@ export default function LandingPage() {
         backgroundPosition: "center",
       }}
     >
-      <div className="absolute inset-0" style={{ backgroundColor: "rgba(255,255,255,0.22)" }} />
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(6,95,70,0.62)" }} />
 
       <div className="relative z-10 flex flex-col items-center w-full">
         <div className="text-center mb-10">
@@ -43,7 +43,7 @@ export default function LandingPage() {
 
         <div className="w-full max-w-lg grid grid-cols-2 gap-5">
           <div className="bg-white/65 backdrop-blur-sm rounded-2xl p-5 shadow-md text-center border border-white/40 hover:bg-white/75 transition-all">
-            <h2 className="text-lg font-black mb-1" style={{ color: "#4ade80" }}>
+            <h2 className="text-lg font-black mb-1" style={{ color: "#6EE7B7" }}>
               English + Spanish
             </h2>
             <p className="text-white/95 text-xs mb-4 font-semibold">Inglés + Español</p>
@@ -57,7 +57,7 @@ export default function LandingPage() {
               <button
                 onClick={() => choose("es", "teacher")}
                 className="w-full bg-white/50 border border-primary/60 font-bold py-2 rounded-xl hover:bg-white/70 transition-colors text-sm cursor-pointer"
-                style={{ color: "#059669" }}
+                style={{ color: "#065F46" }}
               >
                 I&apos;m a Teacher
               </button>
@@ -65,7 +65,7 @@ export default function LandingPage() {
           </div>
 
           <div className="bg-white/65 backdrop-blur-sm rounded-2xl p-5 shadow-md text-center border border-white/40 hover:bg-white/75 transition-all">
-            <h2 className="text-lg font-black mb-1" style={{ color: "#38bdf8" }}>
+            <h2 className="text-lg font-black mb-1" style={{ color: "#FCD34D" }}>
               English + Urdu
             </h2>
             <p className="text-white/95 text-xs mb-4 font-semibold" dir="rtl">انگریزی + اردو</p>
@@ -79,7 +79,7 @@ export default function LandingPage() {
               <button
                 onClick={() => choose("ur", "teacher")}
                 className="w-full bg-white/50 border border-accent/60 font-bold py-2 rounded-xl hover:bg-white/70 transition-colors text-sm cursor-pointer"
-                style={{ color: "#0EA5E9" }}
+                style={{ color: "#D97706" }}
               >
                 I&apos;m a Teacher
               </button>
