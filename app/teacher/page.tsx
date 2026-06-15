@@ -11,11 +11,11 @@ import { GradeReading } from "@/data/types";
 const allGrades: GradeReading[] = [grade1, grade2, grade3, grade4, grade5];
 
 const pillarColors: Record<string, string> = {
-  "phonemic-awareness": "#8B5CF6",
-  phonics: "#F59E0B",
-  fluency: "#0EA5E9",
-  vocabulary: "#22C55E",
-  comprehension: "#EF4444",
+  "phonemic-awareness": "#065F46",
+  phonics: "#0D9488",
+  fluency: "#059669",
+  vocabulary: "#D97706",
+  comprehension: "#B45309",
 };
 
 function GradeSection({ gradeInfo }: { gradeInfo: GradeReading }) {
