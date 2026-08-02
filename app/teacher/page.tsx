@@ -1,6 +1,10 @@
 "use client";
 
+import { useState } from "react";
+import { Sprout, Leaf, Waves, TreePine, Sun, BookOpen } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import NavBar from "@/components/NavBar";
+import Link from "next/link";
 import grade1 from "@/data/grade1";
 import grade2 from "@/data/grade2";
 import grade3 from "@/data/grade3";
@@ -8,89 +12,89 @@ import grade4 from "@/data/grade4";
 import grade5 from "@/data/grade5";
 import { GradeReading } from "@/data/types";
 
-const allGrades: GradeReading[] = [grade1, grade2, grade3, grade4, grade5];
-
-const pillarColors: Record<string, string> = {
-  "phonemic-awareness": "#065F46",
-  phonics: "#0D9488",
-  fluency: "#059669",
-  vocabulary: "#D97706",
-  comprehension: "#B45309",
-};
-
-function GradeSection({ gradeInfo }: { gradeInfo: GradeReading }) {
-  return (
-    <section className="mb-10">
-      <div className="flex items-center gap-3 mb-4">
-        <span className="text-3xl">{gradeInfo.emoji}</span>
-        <h2 className="text-2xl font-black" style={{ color: gradeInfo.color }}>
-          {gradeInfo.label}
-        </h2>
-      </div>
-      <div className="grid gap-3">
-        {gradeInfo.units.map((unit) => {
-          const color = pillarColors[unit.pillar] ?? "#6B7280";
-          return (
-            <div
-              key={unit.id}
-              className="bg-white rounded-2xl p-4 shadow border border-gray-100 flex gap-4 items-start"
-            >
-              <span className="text-3xl mt-0.5">{unit.emoji}</span>
-              <div className="flex-1">
-                <div className="flex flex-wrap gap-2 mb-1 items-center">
-                  <span className="font-black text-gray-800">{unit.title.en}</span>
-                  <span
-                    className="text-xs font-bold px-2 py-0.5 rounded-full text-white"
-                    style={{ backgroundColor: color }}
-                  >
-                    {unit.pillarLabel.en}
-                  </span>
-                </div>
-                <div className="flex gap-3 text-xs text-gray-500 font-semibold">
-                  <span>{unit.teks}</span>
-                  <span>{unit.cambridge}</span>
-                </div>
-                <div className="mt-2 text-xs text-gray-500">
-                  <span>{unit.vocabulary.length} vocab words</span>
-                  <span className="mx-2">·</span>
-                  <span>{unit.exercises.length} exercises</span>
-                  <span className="mx-2">·</span>
-                  <span>{unit.quiz.length} quiz questions</span>
-                </div>
-                <div className="mt-2 text-xs text-gray-400 font-medium">
-                  ES: {unit.title.es} · UR: {unit.title.ur}
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
+const grades: { id: string; label: string; icon: LucideIcon; color: string; data: GradeReading }[] = [
+  { id: "1", label: "Grade 1", icon: Sprout,   color: "#059669", data: grade1 },
+  { id: "2", label: "Grade 2", icon: Leaf,     color: "#065F46", data: grade2 },
+  { id: "3", label: "Grade 3", icon: Waves,    color: "#0D9488", data: grade3 },
+  { id: "4", label: "Grade 4", icon: TreePine, color: "#166534", data: grade4 },
+  { id: "5", label: "Grade 5", icon: Sun,      color: "#047857", data: grade5 },
+];
 
 export default function TeacherPage() {
+  const [activeGrade, setActiveGrade] = useState("1");
+  const current = grades.find((g) => g.id === activeGrade)!;
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <NavBar />
       <main className="flex-1 px-6 py-10 max-w-3xl mx-auto w-full">
-        <h1 className="text-4xl font-black text-gray-800 mb-2">Teacher View</h1>
-        <p className="text-gray-500 font-semibold mb-10">
-          Science of Reading · All units by grade and pillar
-        </p>
+        <h1 className="text-4xl font-black text-gray-800 mb-2 flex items-center gap-2">
+          <BookOpen size={32} className="text-primary" /> Teacher View
+        </h1>
+        <p className="text-gray-500 font-semibold mb-6">Browse by TEKS or Cambridge standard</p>
 
-        <div className="bg-white rounded-2xl p-4 shadow border border-gray-100 mb-8 flex flex-wrap gap-3">
-          {Object.entries(pillarColors).map(([pillar, color]) => (
-            <div key={pillar} className="flex items-center gap-1.5">
-              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
-              <span className="text-xs font-bold text-gray-600 capitalize">{pillar.replace("-", " ")}</span>
-            </div>
-          ))}
+        {/* Grade tabs */}
+        <div className="flex gap-2 mb-10 bg-white rounded-2xl p-2 shadow-sm overflow-x-auto">
+          {grades.map((g) => {
+            const Icon = g.icon;
+            return (
+              <button
+                key={g.id}
+                onClick={() => setActiveGrade(g.id)}
+                className={`flex-1 min-w-[80px] py-3 rounded-xl font-bold text-sm transition-all cursor-pointer flex flex-col items-center gap-1 ${
+                  activeGrade === g.id ? "text-white shadow-md" : "text-gray-400 hover:text-gray-600"
+                }`}
+                style={activeGrade === g.id ? { backgroundColor: g.color } : undefined}
+              >
+                <Icon size={20} />
+                <span>{g.label.replace("Grade ", "G")}</span>
+              </button>
+            );
+          })}
         </div>
 
-        {allGrades.map((g) => (
-          <GradeSection key={g.grade} gradeInfo={g} />
-        ))}
+        <h2 className="text-xl font-black text-gray-700 mb-4 flex items-center gap-2">
+          {(() => { const Icon = current.icon; return <Icon size={22} className="text-primary" />; })()}
+          {current.label}
+        </h2>
+        <div className="flex flex-col gap-3">
+          {current.data.units.map((unit) => (
+            <Link
+              key={unit.id}
+              href={`/student/${current.id}/${unit.id}`}
+              className="bg-white rounded-2xl px-6 py-5 shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all flex items-center gap-5"
+            >
+              <div className="flex-1">
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <span className="font-black text-gray-800">{unit.title.en}</span>
+                  <span className="text-xs font-bold text-primary bg-primary-light px-2 py-0.5 rounded-full">
+                    {unit.pillarLabel.en}
+                  </span>
+                </div>
+                <div className="text-gray-400 text-sm">
+                  {unit.vocabulary.length} words · {unit.exercises.length} exercises · {unit.quiz.length} quiz questions
+                </div>
+              </div>
+              <div className="text-right text-xs text-gray-400 font-mono">
+                <div className="font-bold text-primary">{unit.teks}</div>
+                <div>{unit.cambridge}</div>
+              </div>
+            </Link>
+          ))}
+          {current.data.units.length === 0 && (
+            <div className="bg-white rounded-2xl p-10 text-center shadow-sm border border-gray-100">
+              <div className="text-4xl mb-3">🚧</div>
+              <p className="text-gray-500 font-semibold">{current.label} content is being built. Check back soon!</p>
+            </div>
+          )}
+        </div>
+
+        <div className="mt-10 bg-primary-light rounded-2xl p-6 text-center">
+          <p className="text-gray-500 font-semibold">More TEKS units coming soon. Want to help shape the content?</p>
+          <Link href="/community" className="mt-3 inline-block bg-primary text-white font-bold px-6 py-3 rounded-2xl hover:bg-primary-dark transition-colors">
+            Share Feedback →
+          </Link>
+        </div>
       </main>
     </div>
   );
