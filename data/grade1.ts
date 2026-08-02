@@ -22,6 +22,16 @@ const grade1: GradeReading = {
       emoji: "🎵",
       teks: "TEKS 1.2A",
       cambridge: "Cambridge Reading Stage 1",
+      learningObjective: {
+        en: "I am learning to hear and make rhyming words so that I can notice patterns in how words sound.",
+        es: "Estoy aprendiendo a escuchar y crear palabras que riman para poder notar patrones en cómo suenan las palabras.",
+        ur: "میں ہم قافیہ الفاظ سننا اور بنانا سیکھ رہا ہوں تاکہ الفاظ کی آوازوں کے نمونے دیکھ سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can tell if two words rhyme.", es: "Puedo decir si dos palabras riman.", ur: "میں بتا سکتا ہوں کہ دو الفاظ ہم قافیہ ہیں یا نہیں۔" },
+        { en: "I can think of a word that rhymes with a given word.", es: "Puedo pensar en una palabra que rime con una palabra dada.", ur: "میں کسی دیے گئے لفظ کے ساتھ ہم قافیہ لفظ سوچ سکتا ہوں۔" },
+        { en: "I can explain why two words rhyme.", es: "Puedo explicar por qué dos palabras riman.", ur: "میں وضاحت کر سکتا ہوں کہ دو الفاظ ہم قافیہ کیوں ہیں۔" },
+      ],
       vocabulary: [
         {
           id: "rhyme",
@@ -174,6 +184,16 @@ const grade1: GradeReading = {
       emoji: "🔤",
       teks: "TEKS 1.2B",
       cambridge: "Cambridge Reading Stage 1",
+      learningObjective: {
+        en: "I am learning short vowel sounds so that I can read and spell simple words correctly.",
+        es: "Estoy aprendiendo los sonidos de las vocales cortas para poder leer y escribir palabras simples correctamente.",
+        ur: "میں مختصر حروفِ علت کی آوازیں سیکھ رہا ہوں تاکہ آسان الفاظ درست پڑھ اور لکھ سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can say the short sound for each vowel: a, e, i, o, u.", es: "Puedo decir el sonido corto de cada vocal: a, e, i, o, u.", ur: "میں ہر حرفِ علت کی مختصر آواز بتا سکتا ہوں: a، e، i، o، u۔" },
+        { en: "I can blend letter sounds to read a short-vowel word.", es: "Puedo combinar sonidos de letras para leer una palabra de vocal corta.", ur: "میں مختصر حرفِ علت والا لفظ پڑھنے کے لیے حروف کی آوازیں ملا سکتا ہوں۔" },
+        { en: "I can sort words by their short vowel sound.", es: "Puedo clasificar palabras según su sonido de vocal corta.", ur: "میں الفاظ کو ان کی مختصر حرفِ علت کی آواز کے مطابق چھانٹ سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "vowel",
@@ -326,6 +346,16 @@ const grade1: GradeReading = {
       emoji: "📖",
       teks: "TEKS 1.4A",
       cambridge: "Cambridge Reading Stage 2",
+      learningObjective: {
+        en: "I am learning to read with expression so that my reading sounds smooth and interesting.",
+        es: "Estoy aprendiendo a leer con expresión para que mi lectura suene fluida e interesante.",
+        ur: "میں تاثر کے ساتھ پڑھنا سیکھ رہا ہوں تاکہ میری قرات ہموار اور دلچسپ لگے۔",
+      },
+      successCriteria: [
+        { en: "I can read a sentence without stopping to sound out every word.", es: "Puedo leer una oración sin detenerme a pronunciar cada palabra.", ur: "میں ہر لفظ ہجے کیے بغیر جملہ پڑھ سکتا ہوں۔" },
+        { en: "I can change my voice for a question mark or an exclamation point.", es: "Puedo cambiar mi voz para un signo de interrogación o exclamación.", ur: "میں سوالیہ یا فجائیہ نشان کے لیے اپنی آواز بدل سکتا ہوں۔" },
+        { en: "I can read a story so it sounds like talking, not robot reading.", es: "Puedo leer una historia para que suene como una conversación, no como un robot.", ur: "میں کہانی ایسے پڑھ سکتا ہوں کہ وہ باتوں جیسی لگے، روبوٹ جیسی نہیں۔" },
+      ],
       vocabulary: [
         {
           id: "fluency",
@@ -478,6 +508,16 @@ const grade1: GradeReading = {
       emoji: "🤝",
       teks: "TEKS 1.7A",
       cambridge: "Cambridge Reading Stage 1",
+      learningObjective: {
+        en: "I am learning words about community helpers so that I can talk about the people who help our neighborhood.",
+        es: "Estoy aprendiendo palabras sobre los ayudantes de la comunidad para poder hablar de las personas que ayudan a nuestro vecindario.",
+        ur: "میں کمیونٹی ہیلپرز کے الفاظ سیکھ رہا ہوں تاکہ ان لوگوں کے بارے میں بات کر سکوں جو ہمارے محلے کی مدد کرتے ہیں۔",
+      },
+      successCriteria: [
+        { en: "I can name a community helper and what they do.", es: "Puedo nombrar a un ayudante de la comunidad y lo que hace.", ur: "میں کسی کمیونٹی ہیلپر کا نام اور اس کا کام بتا سکتا ہوں۔" },
+        { en: "I can use a new vocabulary word in my own sentence.", es: "Puedo usar una nueva palabra de vocabulario en mi propia oración.", ur: "میں نئے لفظ کو اپنے جملے میں استعمال کر سکتا ہوں۔" },
+        { en: "I can match a community helper word to its picture.", es: "Puedo relacionar la palabra de un ayudante comunitario con su imagen.", ur: "میں کمیونٹی ہیلپر کے لفظ کو اس کی تصویر سے ملا سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "community",
@@ -646,6 +686,16 @@ const grade1: GradeReading = {
       emoji: "💡",
       teks: "TEKS 1.9D",
       cambridge: "Cambridge Reading Stage 2",
+      learningObjective: {
+        en: "I am learning to find the main idea so that I can tell what a story is mostly about.",
+        es: "Estoy aprendiendo a encontrar la idea principal para poder decir de qué trata mayormente una historia.",
+        ur: "میں مرکزی خیال تلاش کرنا سیکھ رہا ہوں تاکہ بتا سکوں کہانی بنیادی طور پر کس بارے میں ہے۔",
+      },
+      successCriteria: [
+        { en: "I can tell the main idea of a short story.", es: "Puedo decir la idea principal de una historia corta.", ur: "میں مختصر کہانی کا مرکزی خیال بتا سکتا ہوں۔" },
+        { en: "I can find details that support the main idea.", es: "Puedo encontrar detalles que apoyan la idea principal.", ur: "میں مرکزی خیال کی حمایت کرنے والی تفصیلات تلاش کر سکتا ہوں۔" },
+        { en: "I can tell the difference between the main idea and a small detail.", es: "Puedo decir la diferencia entre la idea principal y un pequeño detalle.", ur: "میں مرکزی خیال اور چھوٹی تفصیل کا فرق بتا سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "main-idea",

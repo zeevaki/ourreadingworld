@@ -22,6 +22,16 @@ const grade4: GradeReading = {
       emoji: "🔢",
       teks: "TEKS 4.2A",
       cambridge: "Cambridge Reading Stage 4",
+      learningObjective: {
+        en: "I am learning to manipulate syllables so that I can break apart and rebuild longer words.",
+        es: "Estoy aprendiendo a manipular sílabas para poder separar y reconstruir palabras más largas.",
+        ur: "میں الفاظ کے حصے بدلنا سیکھ رہا ہوں تاکہ لمبے الفاظ کو توڑ اور دوبارہ بنا سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can count the syllables in a word.", es: "Puedo contar las sílabas de una palabra.", ur: "میں لفظ کے حصے گن سکتا ہوں۔" },
+        { en: "I can remove a syllable to make a new word.", es: "Puedo quitar una sílaba para formar una nueva palabra.", ur: "میں نیا لفظ بنانے کے لیے ایک حصہ ہٹا سکتا ہوں۔" },
+        { en: "I can combine syllables to build a multisyllabic word.", es: "Puedo combinar sílabas para construir una palabra de varias sílabas.", ur: "میں کئی حصوں والا لفظ بنانے کے لیے حصے ملا سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "syllable",
@@ -190,6 +200,16 @@ const grade4: GradeReading = {
       emoji: "🏗️",
       teks: "TEKS 4.2B",
       cambridge: "Cambridge Reading Stage 4",
+      learningObjective: {
+        en: "I am learning multisyllabic word patterns so that I can decode longer, more complex words.",
+        es: "Estoy aprendiendo patrones de palabras de varias sílabas para poder decodificar palabras más largas y complejas.",
+        ur: "میں کئی حصوں والے الفاظ کے نمونے سیکھ رہا ہوں تاکہ لمبے اور پیچیدہ الفاظ پڑھ سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can break a long word into syllables to read it.", es: "Puedo separar una palabra larga en sílabas para leerla.", ur: "میں لمبے لفظ کو پڑھنے کے لیے حصوں میں توڑ سکتا ہوں۔" },
+        { en: "I can identify a common syllable pattern in a word.", es: "Puedo identificar un patrón de sílaba común en una palabra.", ur: "میں لفظ میں عام حصے کا نمونہ پہچان سکتا ہوں۔" },
+        { en: "I can use syllable patterns to read an unfamiliar word.", es: "Puedo usar patrones de sílabas para leer una palabra desconocida.", ur: "میں نامعلوم لفظ پڑھنے کے لیے حصوں کے نمونے استعمال کر سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "open-syllable",
@@ -358,6 +378,16 @@ const grade4: GradeReading = {
       emoji: "📡",
       teks: "TEKS 4.4A",
       cambridge: "Cambridge Reading Stage 4",
+      learningObjective: {
+        en: "I am learning to monitor my reading rate so that I can notice when something doesn't make sense and fix it.",
+        es: "Estoy aprendiendo a monitorear mi ritmo de lectura para poder notar cuando algo no tiene sentido y corregirlo.",
+        ur: "میں اپنی پڑھنے کی رفتار کی نگرانی کرنا سیکھ رہا ہوں تاکہ نوٹ کر سکوں جب کچھ سمجھ نہ آئے اور اسے ٹھیک کر سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can notice when I've made a mistake while reading.", es: "Puedo notar cuando he cometido un error al leer.", ur: "میں نوٹ کر سکتا ہوں جب پڑھتے وقت غلطی ہو۔" },
+        { en: "I can go back and reread a confusing sentence.", es: "Puedo volver atrás y releer una oración confusa.", ur: "میں واپس جا کر مبہم جملہ دوبارہ پڑھ سکتا ہوں۔" },
+        { en: "I can adjust my reading speed for a harder text.", es: "Puedo ajustar mi velocidad de lectura para un texto más difícil.", ur: "میں مشکل متن کے لیے اپنی پڑھنے کی رفتار بدل سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "reading-rate",
@@ -526,6 +556,16 @@ const grade4: GradeReading = {
       emoji: "🎨",
       teks: "TEKS 4.7B",
       cambridge: "Cambridge Reading Stage 4",
+      learningObjective: {
+        en: "I am learning figurative language so that I can understand what an author really means beyond the literal words.",
+        es: "Estoy aprendiendo el lenguaje figurado para poder entender lo que un autor realmente quiere decir más allá de las palabras literales.",
+        ur: "میں تشبیہی زبان سیکھ رہا ہوں تاکہ سمجھ سکوں مصنف لفظی الفاظ سے آگے حقیقت میں کیا کہنا چاہتا ہے۔",
+      },
+      successCriteria: [
+        { en: "I can identify a simile or metaphor in a sentence.", es: "Puedo identificar un símil o una metáfora en una oración.", ur: "میں جملے میں تشبیہ یا استعارہ پہچان سکتا ہوں۔" },
+        { en: "I can explain what a piece of figurative language means.", es: "Puedo explicar qué significa una pieza de lenguaje figurado.", ur: "میں وضاحت کر سکتا ہوں کہ تشبیہی زبان کا کیا مطلب ہے۔" },
+        { en: "I can tell the difference between literal and figurative language.", es: "Puedo decir la diferencia entre el lenguaje literal y el figurado.", ur: "میں لفظی اور تشبیہی زبان کا فرق بتا سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "figurative-language",
@@ -694,6 +734,16 @@ const grade4: GradeReading = {
       emoji: "🎯",
       teks: "TEKS 4.9D",
       cambridge: "Cambridge Reading Stage 4",
+      learningObjective: {
+        en: "I am learning to identify an author's purpose so that I can understand why a text was written.",
+        es: "Estoy aprendiendo a identificar el propósito del autor para poder entender por qué se escribió un texto.",
+        ur: "میں مصنف کا مقصد پہچاننا سیکھ رہا ہوں تاکہ سمجھ سکوں متن کیوں لکھا گیا۔",
+      },
+      successCriteria: [
+        { en: "I can tell if a text's purpose is to persuade, inform, or entertain.", es: "Puedo decir si el propósito de un texto es persuadir, informar o entretener.", ur: "میں بتا سکتا ہوں کہ متن کا مقصد قائل کرنا، آگاہ کرنا، یا محظوظ کرنا ہے۔" },
+        { en: "I can find evidence in the text that supports the author's purpose.", es: "Puedo encontrar evidencia en el texto que apoya el propósito del autor.", ur: "میں متن میں مصنف کے مقصد کی حمایت کرنے والا ثبوت تلاش کر سکتا ہوں۔" },
+        { en: "I can explain how the purpose affects the way the text is written.", es: "Puedo explicar cómo el propósito afecta la forma en que se escribe el texto.", ur: "میں وضاحت کر سکتا ہوں کہ مقصد متن لکھنے کے انداز کو کیسے متاثر کرتا ہے۔" },
+      ],
       vocabulary: [
         {
           id: "authors-purpose",

@@ -22,6 +22,16 @@ const grade2: GradeReading = {
       emoji: "🔀",
       teks: "TEKS 2.2A",
       cambridge: "Cambridge Reading Stage 2",
+      learningObjective: {
+        en: "I am learning to blend and segment sounds so that I can read and spell longer words.",
+        es: "Estoy aprendiendo a combinar y separar sonidos para poder leer y escribir palabras más largas.",
+        ur: "میں آوازیں ملانا اور الگ کرنا سیکھ رہا ہوں تاکہ لمبے الفاظ پڑھ اور لکھ سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can blend separate sounds together to say a word.", es: "Puedo combinar sonidos separados para decir una palabra.", ur: "میں الگ آوازوں کو ملا کر لفظ بول سکتا ہوں۔" },
+        { en: "I can break a word apart into its separate sounds.", es: "Puedo separar una palabra en sus sonidos individuales.", ur: "میں لفظ کو اس کی الگ الگ آوازوں میں توڑ سکتا ہوں۔" },
+        { en: "I can count how many sounds are in a word.", es: "Puedo contar cuántos sonidos hay en una palabra.", ur: "میں گن سکتا ہوں کہ لفظ میں کتنی آوازیں ہیں۔" },
+      ],
       vocabulary: [
         {
           id: "blend",
@@ -190,6 +200,16 @@ const grade2: GradeReading = {
       emoji: "✨",
       teks: "TEKS 2.2B",
       cambridge: "Cambridge Reading Stage 2",
+      learningObjective: {
+        en: "I am learning about long vowels and the magic e so that I can read words where a silent e changes the vowel sound.",
+        es: "Estoy aprendiendo las vocales largas y la e mágica para poder leer palabras donde una e silenciosa cambia el sonido de la vocal.",
+        ur: "میں لمبے حروفِ علت اور جادوئی e سیکھ رہا ہوں تاکہ ایسے الفاظ پڑھ سکوں جہاں خاموش e حرفِ علت کی آواز بدل دیتا ہے۔",
+      },
+      successCriteria: [
+        { en: "I can read a word with a long vowel sound made by a silent e.", es: "Puedo leer una palabra con un sonido de vocal larga hecho por una e silenciosa.", ur: "میں خاموش e سے بننے والی لمبی حرفِ علت کی آواز والا لفظ پڑھ سکتا ہوں۔" },
+        { en: "I can explain how adding e to the end of a word changes its sound.", es: "Puedo explicar cómo agregar una e al final de una palabra cambia su sonido.", ur: "میں وضاحت کر سکتا ہوں کہ لفظ کے آخر میں e شامل کرنے سے اس کی آواز کیسے بدلتی ہے۔" },
+        { en: "I can compare a short-vowel word to its magic e partner, like 'cap' and 'cape.'", es: "Puedo comparar una palabra de vocal corta con su pareja de e mágica, como 'cap' y 'cape'.", ur: "میں مختصر حرفِ علت والے لفظ کا جادوئی e والے جوڑے سے موازنہ کر سکتا ہوں، جیسے 'cap' اور 'cape'۔" },
+      ],
       vocabulary: [
         {
           id: "long-vowel",
@@ -358,6 +378,16 @@ const grade2: GradeReading = {
       emoji: "🗣️",
       teks: "TEKS 2.4A",
       cambridge: "Cambridge Reading Stage 2",
+      learningObjective: {
+        en: "I am learning to read in phrases so that my reading sounds natural instead of word-by-word.",
+        es: "Estoy aprendiendo a leer en frases para que mi lectura suene natural en lugar de palabra por palabra.",
+        ur: "میں فقروں میں پڑھنا سیکھ رہا ہوں تاکہ میری قرات لفظ بہ لفظ کی بجائے فطری لگے۔",
+      },
+      successCriteria: [
+        { en: "I can group words together into a phrase as I read.", es: "Puedo agrupar palabras en una frase mientras leo.", ur: "میں پڑھتے ہوئے الفاظ کو فقرے میں گروپ کر سکتا ہوں۔" },
+        { en: "I can pause at commas and periods.", es: "Puedo hacer una pausa en las comas y los puntos.", ur: "میں کاما اور فل سٹاپ پر رک سکتا ہوں۔" },
+        { en: "I can read a sentence at a steady, comfortable pace.", es: "Puedo leer una oración a un ritmo constante y cómodo.", ur: "میں جملہ مستقل اور آرام دہ رفتار سے پڑھ سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "phrase",
@@ -526,6 +556,16 @@ const grade2: GradeReading = {
       emoji: "🔄",
       teks: "TEKS 2.7A",
       cambridge: "Cambridge Reading Stage 2",
+      learningObjective: {
+        en: "I am learning synonyms and antonyms so that I can find words that mean the same or the opposite.",
+        es: "Estoy aprendiendo sinónimos y antónimos para poder encontrar palabras que significan lo mismo o lo opuesto.",
+        ur: "میں مترادفات اور متضادات سیکھ رہا ہوں تاکہ ایک جیسے یا مخالف معنی والے الفاظ تلاش کر سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can name a synonym for a given word.", es: "Puedo nombrar un sinónimo de una palabra dada.", ur: "میں دیے گئے لفظ کا مترادف بتا سکتا ہوں۔" },
+        { en: "I can name an antonym for a given word.", es: "Puedo nombrar un antónimo de una palabra dada.", ur: "میں دیے گئے لفظ کا متضاد بتا سکتا ہوں۔" },
+        { en: "I can explain the difference between a synonym and an antonym.", es: "Puedo explicar la diferencia entre un sinónimo y un antónimo.", ur: "میں مترادف اور متضاد کا فرق بتا سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "synonym",
@@ -694,6 +734,16 @@ const grade2: GradeReading = {
       emoji: "📋",
       teks: "TEKS 2.9D",
       cambridge: "Cambridge Reading Stage 3",
+      learningObjective: {
+        en: "I am learning to sequence a story so that I can tell what happened first, next, and last.",
+        es: "Estoy aprendiendo a secuenciar una historia para poder decir qué pasó primero, después y al final.",
+        ur: "میں کہانی کی ترتیب سیکھ رہا ہوں تاکہ بتا سکوں پہلے، بعد میں، اور آخر میں کیا ہوا۔",
+      },
+      successCriteria: [
+        { en: "I can put story events in the correct order.", es: "Puedo poner los eventos de una historia en el orden correcto.", ur: "میں کہانی کے واقعات کو درست ترتیب میں رکھ سکتا ہوں۔" },
+        { en: "I can use words like first, next, and last to retell a story.", es: "Puedo usar palabras como primero, después y al final para volver a contar una historia.", ur: "میں کہانی دوبارہ سنانے کے لیے پہلے، بعد میں، اور آخر میں جیسے الفاظ استعمال کر سکتا ہوں۔" },
+        { en: "I can tell what happened before or after a specific event in a story.", es: "Puedo decir qué pasó antes o después de un evento específico en una historia.", ur: "میں بتا سکتا ہوں کہ کہانی کے کسی خاص واقعے سے پہلے یا بعد میں کیا ہوا۔" },
+      ],
       vocabulary: [
         {
           id: "sequence",

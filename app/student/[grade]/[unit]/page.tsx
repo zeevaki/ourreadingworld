@@ -10,6 +10,10 @@ import grade3 from "@/data/grade3";
 import grade4 from "@/data/grade4";
 import grade5 from "@/data/grade5";
 import { GradeReading, ReadingUnit, ReadingQuestion } from "@/data/types";
+import {
+  ScrollText, BookOpen, GraduationCap, PencilLine, ClipboardCheck, CheckCircle2,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const gradeData: Record<string, GradeReading> = {
   "1": grade1,
@@ -19,8 +23,19 @@ const gradeData: Record<string, GradeReading> = {
   "5": grade5,
 };
 
-type Tab = "vocab" | "lesson" | "exercises" | "quiz";
+type Tab = "teks" | "vocab" | "lesson" | "exercises" | "quiz";
 
+const tabIcons: Record<Tab, LucideIcon> = {
+  teks: ScrollText,
+  vocab: BookOpen,
+  lesson: GraduationCap,
+  exercises: PencilLine,
+  quiz: ClipboardCheck,
+};
+
+function secondLangCode(lang: "es" | "ur"): string {
+  return lang === "es" ? "es-MX" : "ur-PK";
+}
 
 function cleanForTTS(text: string): string {
   return text
@@ -68,6 +83,65 @@ function renderLines(text: string) {
   });
 }
 
+function TeksTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
+  const lo = unit.learningObjective;
+  const sc = unit.successCriteria;
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="bg-white rounded-2xl p-5 shadow border border-gray-100">
+        <span className="text-xs font-bold text-primary uppercase tracking-wide">{unit.teks}</span>
+        <p className="text-gray-400 text-xs mt-1">{unit.cambridge}</p>
+      </div>
+
+      {lo && (
+        <div className="bg-primary text-white rounded-2xl p-5 shadow">
+          <span className="text-xs font-bold uppercase tracking-wide text-white/70">Learning Objective</span>
+          <div className="flex items-start gap-2 mt-2">
+            <p className="text-base font-bold leading-relaxed flex-1">{lo.en}</p>
+            <SpeakButton text={cleanForTTS(lo.en)} lang="en-US" size="sm" />
+          </div>
+          <div className="flex items-start gap-2 mt-2">
+            <p className="text-white/90 font-semibold text-sm leading-relaxed flex-1" dir={lang === "ur" ? "rtl" : undefined}>
+              {lo[lang]}
+            </p>
+            <SpeakButton text={cleanForTTS(lo[lang])} lang={secondLangCode(lang)} size="sm" />
+          </div>
+        </div>
+      )}
+
+      {sc && sc.length > 0 && (
+        <div className="bg-white rounded-2xl p-5 shadow border border-gray-100">
+          <span className="text-xs font-bold text-primary uppercase tracking-wide">Success Criteria</span>
+          <ul className="flex flex-col gap-3 mt-3">
+            {sc.map((c, i) => (
+              <li key={i} className="flex items-start gap-2.5">
+                <CheckCircle2 size={18} className="text-primary flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <div className="flex items-start gap-2">
+                    <p className="text-gray-800 text-sm font-semibold flex-1">{c.en}</p>
+                    <SpeakButton text={cleanForTTS(c.en)} lang="en-US" size="sm" />
+                  </div>
+                  <div className="flex items-start gap-2 mt-0.5">
+                    <p className="text-gray-500 text-sm flex-1" dir={lang === "ur" ? "rtl" : undefined}>{c[lang]}</p>
+                    <SpeakButton text={cleanForTTS(c[lang])} lang={secondLangCode(lang)} size="sm" />
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {!lo && !sc && (
+        <div className="bg-white rounded-2xl p-5 shadow border border-gray-100 text-gray-400 text-sm">
+          Learning objective and success criteria aren&apos;t available yet for this unit.
+        </div>
+      )}
+    </div>
+  );
+}
+
 function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
   return (
     <div className="grid gap-4">
@@ -83,6 +157,7 @@ function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
                 <span className="text-base font-bold text-primary" dir={lang === "ur" ? "rtl" : undefined}>
                   {lang === "es" ? word.translation.es : word.translation.ur}
                 </span>
+                <SpeakButton text={cleanForTTS(lang === "es" ? word.translation.es : word.translation.ur)} lang={secondLangCode(lang)} size="sm" />
               </div>
             </div>
           </div>
@@ -93,8 +168,9 @@ function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
               <p className="text-gray-800 text-sm font-semibold flex-1">{word.definition.en}</p>
               <SpeakButton text={cleanForTTS(word.definition.en)} lang="en-US" size="sm" />
             </div>
-            <div className="mt-1">
-              <p className="text-gray-500 text-sm" dir={lang === "ur" ? "rtl" : undefined}>{word.definition[lang]}</p>
+            <div className="flex items-start gap-2 mt-1">
+              <p className="text-gray-500 text-sm flex-1" dir={lang === "ur" ? "rtl" : undefined}>{word.definition[lang]}</p>
+              <SpeakButton text={cleanForTTS(word.definition[lang])} lang={secondLangCode(lang)} size="sm" />
             </div>
           </div>
 
@@ -104,8 +180,9 @@ function VocabTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
               <p className="text-gray-600 text-xs italic flex-1">{word.exampleSentence.en}</p>
               <SpeakButton text={cleanForTTS(word.exampleSentence.en)} lang="en-US" size="sm" />
             </div>
-            <div className="mt-1">
-              <p className="text-gray-400 text-xs italic" dir={lang === "ur" ? "rtl" : undefined}>{word.exampleSentence[lang]}</p>
+            <div className="flex items-start gap-2 mt-1">
+              <p className="text-gray-400 text-xs italic flex-1" dir={lang === "ur" ? "rtl" : undefined}>{word.exampleSentence[lang]}</p>
+              <SpeakButton text={cleanForTTS(word.exampleSentence[lang])} lang={secondLangCode(lang)} size="sm" />
             </div>
           </div>
         </div>
@@ -129,6 +206,7 @@ function LessonTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
           <span className="text-xs font-bold text-accent uppercase tracking-wide">
             {lang === "es" ? "Español" : "اردو"}
           </span>
+          <SpeakButton text={cleanForTTS(unit.lesson[lang])} lang={secondLangCode(lang)} size="sm" />
         </div>
         <div className="text-gray-700" dir={lang === "ur" ? "rtl" : undefined}>
           {renderLines(unit.lesson[lang])}
@@ -156,8 +234,9 @@ function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: 
               <p className="font-bold text-gray-800 text-sm flex-1">{qi + 1}. {q.prompt.en}</p>
               <SpeakButton text={cleanForTTS(q.prompt.en)} lang="en-US" size="sm" />
             </div>
-            <div className="mt-1">
-              <p className="text-gray-500 text-sm" dir={lang === "ur" ? "rtl" : undefined}>{q.prompt[lang]}</p>
+            <div className="flex items-start gap-2 mt-1">
+              <p className="text-gray-500 text-sm flex-1" dir={lang === "ur" ? "rtl" : undefined}>{q.prompt[lang]}</p>
+              <SpeakButton text={cleanForTTS(q.prompt[lang])} lang={secondLangCode(lang)} size="sm" />
             </div>
           </div>
 
@@ -182,6 +261,7 @@ function QuizSection({ questions, lang }: { questions: ReadingQuestion[]; lang: 
                     <span className="text-gray-500 text-xs" dir={lang === "ur" ? "rtl" : undefined}>{choice[lang]}</span>
                   </button>
                   <SpeakButton text={cleanForTTS(choice.en)} lang="en-US" size="sm" />
+                  <SpeakButton text={cleanForTTS(choice[lang])} lang={secondLangCode(lang)} size="sm" />
                 </div>
               );
             })}
@@ -216,7 +296,7 @@ export default function UnitPage({ params }: { params: Promise<{ grade: string; 
   const { grade, unit: unitId } = use(params);
   const { language } = useLanguage();
   const lang = (language ?? "es") as "es" | "ur";
-  const [tab, setTab] = useState<Tab>("vocab");
+  const [tab, setTab] = useState<Tab>("teks");
 
   const gradeInfo = gradeData[grade];
   const unit = gradeInfo?.units.find((u) => u.id === unitId);
@@ -232,11 +312,12 @@ export default function UnitPage({ params }: { params: Promise<{ grade: string; 
     );
   }
 
-  const tabs: { id: Tab; enLabel: string; secLabel: string; emoji: string }[] = [
-    { id: "vocab", enLabel: "Vocabulary", secLabel: lang === "ur" ? "الفاظ" : "Vocabulario", emoji: "📝" },
-    { id: "lesson", enLabel: "Lesson", secLabel: lang === "ur" ? "سبق" : "Lección", emoji: "📖" },
-    { id: "exercises", enLabel: "Exercises", secLabel: lang === "ur" ? "مشقیں" : "Ejercicios", emoji: "✏️" },
-    { id: "quiz", enLabel: "Quiz", secLabel: lang === "ur" ? "کوئز" : "Prueba", emoji: "⭐" },
+  const tabs: { id: Tab; label: string }[] = [
+    { id: "teks", label: "TEKS" },
+    { id: "vocab", label: "Vocabulary" },
+    { id: "lesson", label: "Lesson" },
+    { id: "exercises", label: "Exercises" },
+    { id: "quiz", label: "Quiz" },
   ];
 
   return (
@@ -244,7 +325,7 @@ export default function UnitPage({ params }: { params: Promise<{ grade: string; 
       <NavBar />
       <main className="flex-1 px-4 py-8 max-w-2xl mx-auto w-full">
         <div className="mb-1 text-xs font-bold text-gray-400 uppercase tracking-wide">
-          {unit.pillarLabel.en} · {unit.pillarLabel[lang]} · {unit.teks}
+          {unit.pillarLabel.en} · {unit.pillarLabel[lang]}
         </div>
         <div className="flex items-center gap-2 mb-6">
           <span className="text-3xl">{unit.emoji}</span>
@@ -255,21 +336,25 @@ export default function UnitPage({ params }: { params: Promise<{ grade: string; 
           <SpeakButton text={cleanForTTS(unit.title.en)} lang="en-US" />
         </div>
 
-        <div className="flex gap-2 mb-6 flex-wrap">
-          {tabs.map((t) => (
-            <button
-              key={t.id}
-              onClick={() => setTab(t.id)}
-              className={`px-4 py-2 rounded-xl font-bold text-xs cursor-pointer transition-colors text-center ${
-                tab === t.id ? "bg-primary text-white shadow" : "bg-white text-gray-600 border border-gray-200 hover:border-primary"
-              }`}
-            >
-              <span className="block">{t.emoji} {t.enLabel}</span>
-              <span className="block opacity-80" dir={lang === "ur" ? "rtl" : undefined}>{t.secLabel}</span>
-            </button>
-          ))}
+        <div className="flex gap-1.5 mb-8 bg-white rounded-2xl p-2 shadow-sm overflow-x-auto">
+          {tabs.map((t) => {
+            const Icon = tabIcons[t.id];
+            return (
+              <button
+                key={t.id}
+                onClick={() => setTab(t.id)}
+                className={`flex-1 min-w-[64px] py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer flex flex-col items-center gap-1 ${
+                  tab === t.id ? "bg-primary text-white shadow-md" : "text-gray-400 hover:text-primary"
+                }`}
+              >
+                <Icon size={16} />
+                {t.label}
+              </button>
+            );
+          })}
         </div>
 
+        {tab === "teks" && <TeksTab unit={unit} lang={lang} />}
         {tab === "vocab" && <VocabTab unit={unit} lang={lang} />}
         {tab === "lesson" && <LessonTab unit={unit} lang={lang} />}
         {tab === "exercises" && <QuizSection questions={unit.exercises} lang={lang} />}

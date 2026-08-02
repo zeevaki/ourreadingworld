@@ -22,6 +22,16 @@ const grade3: GradeReading = {
       emoji: "🎛️",
       teks: "TEKS 3.2A",
       cambridge: "Cambridge Reading Stage 3",
+      learningObjective: {
+        en: "I am learning to add, remove, and swap sounds in words so that I can understand how sounds build words.",
+        es: "Estoy aprendiendo a agregar, quitar y cambiar sonidos en las palabras para poder entender cómo los sonidos construyen palabras.",
+        ur: "میں الفاظ میں آوازیں شامل کرنا، ہٹانا، اور بدلنا سیکھ رہا ہوں تاکہ سمجھ سکوں آوازیں الفاظ کیسے بناتی ہیں۔",
+      },
+      successCriteria: [
+        { en: "I can remove a sound from a word to make a new word.", es: "Puedo quitar un sonido de una palabra para formar una nueva palabra.", ur: "میں لفظ سے آواز ہٹا کر نیا لفظ بنا سکتا ہوں۔" },
+        { en: "I can add a sound to a word to make a new word.", es: "Puedo agregar un sonido a una palabra para formar una nueva palabra.", ur: "میں لفظ میں آواز شامل کر کے نیا لفظ بنا سکتا ہوں۔" },
+        { en: "I can swap one sound for another to change a word's meaning.", es: "Puedo cambiar un sonido por otro para cambiar el significado de una palabra.", ur: "میں لفظ کا مطلب بدلنے کے لیے ایک آواز کو دوسری سے بدل سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "delete",
@@ -190,6 +200,16 @@ const grade3: GradeReading = {
       emoji: "🧩",
       teks: "TEKS 3.2B",
       cambridge: "Cambridge Reading Stage 3",
+      learningObjective: {
+        en: "I am learning prefixes and suffixes so that I can figure out the meaning of new words.",
+        es: "Estoy aprendiendo prefijos y sufijos para poder descubrir el significado de palabras nuevas.",
+        ur: "میں سابقے اور لاحقے سیکھ رہا ہوں تاکہ نئے الفاظ کا مطلب معلوم کر سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can identify a prefix or suffix in a word.", es: "Puedo identificar un prefijo o sufijo en una palabra.", ur: "میں لفظ میں سابقہ یا لاحقہ پہچان سکتا ہوں۔" },
+        { en: "I can explain how a prefix or suffix changes a word's meaning.", es: "Puedo explicar cómo un prefijo o sufijo cambia el significado de una palabra.", ur: "میں وضاحت کر سکتا ہوں کہ سابقہ یا لاحقہ لفظ کا مطلب کیسے بدلتا ہے۔" },
+        { en: "I can build a new word by adding a prefix or suffix to a base word.", es: "Puedo construir una nueva palabra agregando un prefijo o sufijo a una palabra base.", ur: "میں بنیادی لفظ میں سابقہ یا لاحقہ شامل کر کے نیا لفظ بنا سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "prefix",
@@ -358,6 +378,16 @@ const grade3: GradeReading = {
       emoji: "🎶",
       teks: "TEKS 3.4A",
       cambridge: "Cambridge Reading Stage 3",
+      learningObjective: {
+        en: "I am learning prosody and intonation so that I can read aloud with the right rhythm and tone.",
+        es: "Estoy aprendiendo la prosodia y la entonación para poder leer en voz alta con el ritmo y tono correctos.",
+        ur: "میں لے اور آہنگ سیکھ رہا ہوں تاکہ صحیح تال اور لہجے کے ساتھ بلند آواز میں پڑھ سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can raise my voice at the end of a question.", es: "Puedo subir la voz al final de una pregunta.", ur: "میں سوال کے آخر میں اپنی آواز بلند کر سکتا ہوں۔" },
+        { en: "I can read dialogue with a character's feeling in my voice.", es: "Puedo leer un diálogo con el sentimiento de un personaje en mi voz.", ur: "میں کردار کے جذبات کے ساتھ مکالمہ پڑھ سکتا ہوں۔" },
+        { en: "I can read at a pace that sounds like natural speech.", es: "Puedo leer a un ritmo que suene como el habla natural.", ur: "میں ایسی رفتار سے پڑھ سکتا ہوں جو فطری گفتگو جیسی لگے۔" },
+      ],
       vocabulary: [
         {
           id: "prosody",
@@ -526,6 +556,16 @@ const grade3: GradeReading = {
       emoji: "🔍",
       teks: "TEKS 3.7B",
       cambridge: "Cambridge Reading Stage 3",
+      learningObjective: {
+        en: "I am learning to use context clues so that I can figure out a word I don't know.",
+        es: "Estoy aprendiendo a usar pistas del contexto para poder descubrir una palabra que no conozco.",
+        ur: "میں سیاق و سباق کے اشارے استعمال کرنا سیکھ رہا ہوں تاکہ نامعلوم لفظ کا مطلب معلوم کر سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can use the words around an unknown word to guess its meaning.", es: "Puedo usar las palabras alrededor de una palabra desconocida para adivinar su significado.", ur: "میں نامعلوم لفظ کے ارد گرد کے الفاظ سے اس کا مطلب اندازہ لگا سکتا ہوں۔" },
+        { en: "I can check my guess by rereading the sentence.", es: "Puedo verificar mi suposición releyendo la oración.", ur: "میں جملہ دوبارہ پڑھ کر اپنا اندازہ چیک کر سکتا ہوں۔" },
+        { en: "I can explain which clue in the sentence helped me the most.", es: "Puedo explicar qué pista de la oración me ayudó más.", ur: "میں بتا سکتا ہوں جملے کے کس اشارے نے سب سے زیادہ مدد کی۔" },
+      ],
       vocabulary: [
         {
           id: "context-clue",
@@ -694,6 +734,16 @@ const grade3: GradeReading = {
       emoji: "⚡",
       teks: "TEKS 3.9D",
       cambridge: "Cambridge Reading Stage 4",
+      learningObjective: {
+        en: "I am learning to find problem and solution in a story so that I can understand how a character solves a challenge.",
+        es: "Estoy aprendiendo a encontrar el problema y la solución en una historia para poder entender cómo un personaje resuelve un desafío.",
+        ur: "میں کہانی میں مسئلہ اور حل تلاش کرنا سیکھ رہا ہوں تاکہ سمجھ سکوں کردار کسی چیلنج کو کیسے حل کرتا ہے۔",
+      },
+      successCriteria: [
+        { en: "I can identify the problem in a story.", es: "Puedo identificar el problema en una historia.", ur: "میں کہانی میں مسئلہ پہچان سکتا ہوں۔" },
+        { en: "I can identify the solution to that problem.", es: "Puedo identificar la solución a ese problema.", ur: "میں اس مسئلے کا حل پہچان سکتا ہوں۔" },
+        { en: "I can explain how the character's actions led to the solution.", es: "Puedo explicar cómo las acciones del personaje llevaron a la solución.", ur: "میں وضاحت کر سکتا ہوں کہ کردار کے اعمال حل تک کیسے پہنچے۔" },
+      ],
       vocabulary: [
         {
           id: "text-structure",

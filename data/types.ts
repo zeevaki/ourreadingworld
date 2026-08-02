@@ -36,6 +36,8 @@ export type ReadingUnit = {
   emoji: string;
   teks: string;
   cambridge: string;
+  learningObjective?: BilingualText;
+  successCriteria?: BilingualText[];
   vocabulary: ReadingWord[];
   lesson: BilingualText;
   exercises: ReadingQuestion[];

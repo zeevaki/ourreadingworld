@@ -22,6 +22,16 @@ const grade5: GradeReading = {
       emoji: "🧬",
       teks: "TEKS 5.2A",
       cambridge: "Cambridge Reading Stage 5",
+      learningObjective: {
+        en: "I am learning about morphemes so that I can understand the smallest meaningful parts of a word.",
+        es: "Estoy aprendiendo sobre los morfemas para poder entender las partes más pequeñas con significado de una palabra.",
+        ur: "میں مورفیمز کے بارے میں سیکھ رہا ہوں تاکہ لفظ کے سب سے چھوٹے بامعنی حصے سمجھ سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can identify the root, prefix, or suffix in a word as a morpheme.", es: "Puedo identificar la raíz, el prefijo o el sufijo en una palabra como un morfema.", ur: "میں لفظ میں جڑ، سابقہ، یا لاحقہ کو مورفیم کے طور پر پہچان سکتا ہوں۔" },
+        { en: "I can explain how each morpheme contributes to a word's meaning.", es: "Puedo explicar cómo cada morfema contribuye al significado de una palabra.", ur: "میں وضاحت کر سکتا ہوں کہ ہر مورفیم لفظ کے مطلب میں کیسے حصہ ڈالتا ہے۔" },
+        { en: "I can build a new word by combining morphemes.", es: "Puedo construir una nueva palabra combinando morfemas.", ur: "میں مورفیمز ملا کر نیا لفظ بنا سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "morpheme",
@@ -190,6 +200,16 @@ const grade5: GradeReading = {
       emoji: "🏛️",
       teks: "TEKS 5.2B",
       cambridge: "Cambridge Reading Stage 5",
+      learningObjective: {
+        en: "I am learning Greek and Latin roots so that I can unlock the meaning of many related words at once.",
+        es: "Estoy aprendiendo raíces griegas y latinas para poder descubrir el significado de muchas palabras relacionadas a la vez.",
+        ur: "میں یونانی اور لاطینی جڑیں سیکھ رہا ہوں تاکہ ایک ساتھ کئی متعلقہ الفاظ کا مطلب معلوم کر سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can identify a common Greek or Latin root in a word.", es: "Puedo identificar una raíz griega o latina común en una palabra.", ur: "میں لفظ میں عام یونانی یا لاطینی جڑ پہچان سکتا ہوں۔" },
+        { en: "I can name other words that share the same root.", es: "Puedo nombrar otras palabras que comparten la misma raíz.", ur: "میں دوسرے الفاظ بتا سکتا ہوں جو وہی جڑ رکھتے ہیں۔" },
+        { en: "I can use a root's meaning to figure out an unfamiliar word.", es: "Puedo usar el significado de una raíz para descubrir una palabra desconocida.", ur: "میں نامعلوم لفظ سمجھنے کے لیے جڑ کا مطلب استعمال کر سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "root",
@@ -358,6 +378,16 @@ const grade5: GradeReading = {
       emoji: "🎓",
       teks: "TEKS 5.4A",
       cambridge: "Cambridge Reading Stage 5",
+      learningObjective: {
+        en: "I am learning to read complex texts fluently so that I can handle harder vocabulary and longer sentences smoothly.",
+        es: "Estoy aprendiendo a leer textos complejos con fluidez para poder manejar vocabulario más difícil y oraciones más largas sin problemas.",
+        ur: "میں پیچیدہ متن روانی سے پڑھنا سیکھ رہا ہوں تاکہ مشکل الفاظ اور لمبے جملے آسانی سے سمجھ سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can read a complex sentence without losing the meaning.", es: "Puedo leer una oración compleja sin perder el significado.", ur: "میں پیچیدہ جملہ پڑھ کر بھی مطلب نہیں کھوتا۔" },
+        { en: "I can adjust my pace for technical or unfamiliar vocabulary.", es: "Puedo ajustar mi ritmo para vocabulario técnico o desconocido.", ur: "میں تکنیکی یا نامعلوم الفاظ کے لیے اپنی رفتار بدل سکتا ہوں۔" },
+        { en: "I can read a passage aloud so a listener can follow along easily.", es: "Puedo leer un pasaje en voz alta para que un oyente lo entienda fácilmente.", ur: "میں پیراگراف اس طرح پڑھ سکتا ہوں کہ سننے والا آسانی سے سمجھ سکے۔" },
+      ],
       vocabulary: [
         {
           id: "complex-sentence",
@@ -526,6 +556,16 @@ const grade5: GradeReading = {
       emoji: "🎨",
       teks: "TEKS 5.7B",
       cambridge: "Cambridge Reading Stage 5",
+      learningObjective: {
+        en: "I am learning connotation and denotation so that I can understand a word's dictionary meaning and its emotional feeling.",
+        es: "Estoy aprendiendo la connotación y la denotación para poder entender el significado de diccionario de una palabra y el sentimiento que provoca.",
+        ur: "میں مفہوم اور لغوی معنی سیکھ رہا ہوں تاکہ لفظ کا لغوی مطلب اور اس کا جذباتی احساس سمجھ سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can state a word's denotation, or dictionary meaning.", es: "Puedo indicar la denotación, o el significado de diccionario, de una palabra.", ur: "میں لفظ کا لغوی معنی بتا سکتا ہوں۔" },
+        { en: "I can explain a word's connotation, or the feeling it gives.", es: "Puedo explicar la connotación de una palabra, o el sentimiento que provoca.", ur: "میں لفظ کا مفہوم، یا اس کا جذباتی احساس، بیان کر سکتا ہوں۔" },
+        { en: "I can compare two similar words with different connotations, like 'skinny' and 'slender.'", es: "Puedo comparar dos palabras similares con connotaciones diferentes, como 'flaco' y 'delgado'.", ur: "میں مختلف مفہوم والے دو ملتے جلتے الفاظ کا موازنہ کر سکتا ہوں، جیسے 'دبلا' اور 'چھریرا'۔" },
+      ],
       vocabulary: [
         {
           id: "denotation",
@@ -694,6 +734,16 @@ const grade5: GradeReading = {
       emoji: "🌟",
       teks: "TEKS 5.9D",
       cambridge: "Cambridge Reading Stage 5",
+      learningObjective: {
+        en: "I am learning about point of view and theme so that I can understand whose perspective a story is told from and its deeper message.",
+        es: "Estoy aprendiendo sobre el punto de vista y el tema para poder entender desde la perspectiva de quién se cuenta una historia y su mensaje más profundo.",
+        ur: "میں نقطہ نظر اور موضوع کے بارے میں سیکھ رہا ہوں تاکہ سمجھ سکوں کہانی کس کے نقطہ نظر سے بیان کی گئی ہے اور اس کا گہرا پیغام کیا ہے۔",
+      },
+      successCriteria: [
+        { en: "I can identify whether a story is told in first or third person.", es: "Puedo identificar si una historia se cuenta en primera o tercera persona.", ur: "میں پہچان سکتا ہوں کہ کہانی پہلے یا تیسرے شخص میں بیان کی گئی ہے۔" },
+        { en: "I can explain how point of view affects what the reader knows.", es: "Puedo explicar cómo el punto de vista afecta lo que el lector sabe.", ur: "میں وضاحت کر سکتا ہوں کہ نقطہ نظر قاری کے علم کو کیسے متاثر کرتا ہے۔" },
+        { en: "I can state the theme, or life lesson, of a story.", es: "Puedo indicar el tema, o la lección de vida, de una historia.", ur: "میں کہانی کا موضوع، یا زندگی کا سبق، بتا سکتا ہوں۔" },
+      ],
       vocabulary: [
         {
           id: "point-of-view",
