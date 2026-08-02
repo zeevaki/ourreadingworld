@@ -29,6 +29,11 @@ export default function NavBar() {
               Grades
             </Link>
           )}
+          {mode === "student" && (
+            <Link href="/daily" className="hover:text-primary transition-colors">
+              Daily Lesson
+            </Link>
+          )}
           {mode === "teacher" && (
             <Link href="/teacher" className="hover:text-primary transition-colors">
               Standards
@@ -74,6 +79,15 @@ export default function NavBar() {
               className="px-4 py-3 rounded-xl font-bold text-sm text-gray-600 hover:text-primary hover:bg-primary-light transition-colors"
             >
               Grades
+            </Link>
+          )}
+          {mode === "student" && (
+            <Link
+              href="/daily"
+              onClick={() => setOpen(false)}
+              className="px-4 py-3 rounded-xl font-bold text-sm text-gray-600 hover:text-primary hover:bg-primary-light transition-colors"
+            >
+              Daily Lesson
             </Link>
           )}
           {mode === "teacher" && (
