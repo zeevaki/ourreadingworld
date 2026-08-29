@@ -1,6 +1,6 @@
 "use client";
 
-import { use } from "react";
+import { use, useState } from "react";
 import Link from "next/link";
 import NavBar from "@/components/NavBar";
 import SpeakButton from "@/components/SpeakButton";
@@ -10,10 +10,16 @@ import grade2 from "@/data/grade2";
 import grade3 from "@/data/grade3";
 import grade4 from "@/data/grade4";
 import grade5 from "@/data/grade5";
-import eslScaffolds from "@/data/eslScaffolds";
+import eslScaffolds, { ProficiencyTier } from "@/data/eslScaffolds";
 import { GradeReading, ReadingPillar } from "@/data/types";
 import { Ear, Type, Mic, BookMarked, Lightbulb, Clock, Languages, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+
+const tierOptions: { tier: ProficiencyTier; label: string }[] = [
+  { tier: "emerging", label: "🌱 Emerging" },
+  { tier: "developing", label: "🌿 Developing" },
+  { tier: "bridging", label: "🌉 Bridging" },
+];
 
 const gradeData: Record<string, GradeReading> = {
   "1": grade1,
@@ -51,6 +57,7 @@ export default function DailyLessonPage({ params }: { params: Promise<{ grade: s
   const { language } = useLanguage();
   const lang = (language ?? "es") as "es" | "ur";
   const gradeInfo = gradeData[grade];
+  const [tier, setTier] = useState<ProficiencyTier>("developing");
 
   if (!gradeInfo) {
     return (
@@ -78,9 +85,29 @@ export default function DailyLessonPage({ params }: { params: Promise<{ grade: s
             </p>
           </div>
         </div>
-        <p className="text-gray-400 text-xs mb-8">
+        <p className="text-gray-400 text-xs mb-4">
           Warm-up through comprehension, in order — everything you need for today in one place.
         </p>
+
+        <div className="mb-8">
+          <p className="text-xs font-bold text-gray-500 mb-2">Which group are you sitting with right now?</p>
+          <div className="flex gap-2">
+            {tierOptions.map((opt) => (
+              <button
+                key={opt.tier}
+                onClick={() => setTier(opt.tier)}
+                className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                  tier === opt.tier ? "bg-accent text-white scale-105" : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+          <p className="text-gray-400 text-xs mt-2">
+            Changes the ESL scaffold suggestions below to match this group's English proficiency — the story and lesson content stay the same for everyone.
+          </p>
+        </div>
 
         <div className="flex flex-col gap-8">
           {pillarOrder.map(({ pillar, icon: Icon, minutes, blockLabel }) => {
@@ -144,8 +171,8 @@ export default function DailyLessonPage({ params }: { params: Promise<{ grade: s
                       <Languages size={14} className="text-accent" />
                       <span className="text-xs font-black text-accent uppercase tracking-wide">{scaffold.title.en}</span>
                     </div>
-                    <p className="text-gray-700 text-xs leading-relaxed mb-1">{scaffold.strategy.en}</p>
-                    <p className="text-gray-500 text-xs leading-relaxed italic" dir={lang === "ur" ? "rtl" : undefined}>{scaffold.strategy[lang]}</p>
+                    <p className="text-gray-700 text-xs leading-relaxed mb-1">{scaffold.strategy[tier].en}</p>
+                    <p className="text-gray-500 text-xs leading-relaxed italic" dir={lang === "ur" ? "rtl" : undefined}>{scaffold.strategy[tier][lang]}</p>
                   </div>
 
                   <Link
