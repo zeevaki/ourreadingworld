@@ -16,6 +16,7 @@ export type ReadingWord = {
 export type ReadingPillar =
   | "phonemic-awareness"
   | "phonics"
+  | "high-frequency-words"
   | "fluency"
   | "vocabulary"
   | "comprehension";

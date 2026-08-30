@@ -79,6 +79,26 @@ const eslScaffolds: Record<ReadingPillar, EslScaffold> = {
       },
     },
   },
+  "high-frequency-words": {
+    title: { en: "Recognition Over Translation", es: "Reconocimiento Antes que Traducción", ur: "ترجمے کی بجائے پہچان" },
+    strategy: {
+      emerging: {
+        en: "Words like \"would,\" \"could,\" and \"which\" often have no single clean word-for-word match in Spanish or Urdu — trying to translate them one-to-one can confuse more than it helps. Instead of translating, model the word in a few short, real sentences and have the student repeat it as a whole shape, the same way they'd memorize a friend's name — recognition first, meaning through use, not through translation.",
+        es: "Palabras como \"would,\" \"could,\" y \"which\" a menudo no tienen una traducción exacta en español o urdu — intentar traducirlas palabra por palabra puede confundir más de lo que ayuda. En lugar de traducir, modela la palabra en unas pocas oraciones cortas y reales, y haz que el estudiante la repita como una forma completa, igual que memorizaría el nombre de un amigo — reconocimiento primero, significado a través del uso, no de la traducción.",
+        ur: "\"would,\" \"could,\" اور \"which\" جیسے الفاظ کا اکثر ہسپانوی یا اردو میں کوئی ایک صاف لفظی ترجمہ نہیں ہوتا — انہیں لفظ بہ لفظ ترجمہ کرنے کی کوشش مدد کی بجائے الجھن پیدا کر سکتی ہے۔ ترجمہ کرنے کی بجائے، لفظ کو چند مختصر، حقیقی جملوں میں دکھائیں اور طالب علم سے اسے مکمل شکل میں دہرانے کو کہیں، بالکل اسی طرح جیسے وہ کسی دوست کا نام یاد کرے گا — پہلے پہچان، مطلب استعمال کے ذریعے، ترجمے کے ذریعے نہیں۔",
+      },
+      developing: {
+        en: "Words like \"would,\" \"could,\" and \"which\" often have no single clean word-for-word match in Spanish or Urdu — trying to translate them one-to-one can confuse more than it helps. Instead of translating, model the word in a few short, real sentences and have the student repeat it as a whole shape, the same way they'd memorize a friend's name — recognition first, meaning through use, not through translation.",
+        es: "Palabras como \"would,\" \"could,\" y \"which\" a menudo no tienen una traducción exacta en español o urdu — intentar traducirlas palabra por palabra puede confundir más de lo que ayuda. En lugar de traducir, modela la palabra en unas pocas oraciones cortas y reales, y haz que el estudiante la repita como una forma completa, igual que memorizaría el nombre de un amigo — reconocimiento primero, significado a través del uso, no de la traducción.",
+        ur: "\"would,\" \"could,\" اور \"which\" جیسے الفاظ کا اکثر ہسپانوی یا اردو میں کوئی ایک صاف لفظی ترجمہ نہیں ہوتا — انہیں لفظ بہ لفظ ترجمہ کرنے کی کوشش مدد کی بجائے الجھن پیدا کر سکتی ہے۔ ترجمہ کرنے کی بجائے، لفظ کو چند مختصر، حقیقی جملوں میں دکھائیں اور طالب علم سے اسے مکمل شکل میں دہرانے کو کہیں، بالکل اسی طرح جیسے وہ کسی دوست کا نام یاد کرے گا — پہلے پہچان، مطلب استعمال کے ذریعے، ترجمے کے ذریعے نہیں۔",
+      },
+      bridging: {
+        en: "Words like \"would,\" \"could,\" and \"which\" often have no single clean word-for-word match in Spanish or Urdu — trying to translate them one-to-one can confuse more than it helps. Instead of translating, model the word in a few short, real sentences and have the student repeat it as a whole shape, the same way they'd memorize a friend's name — recognition first, meaning through use, not through translation.",
+        es: "Palabras como \"would,\" \"could,\" y \"which\" a menudo no tienen una traducción exacta en español o urdu — intentar traducirlas palabra por palabra puede confundir más de lo que ayuda. En lugar de traducir, modela la palabra en unas pocas oraciones cortas y reales, y haz que el estudiante la repita como una forma completa, igual que memorizaría el nombre de un amigo — reconocimiento primero, significado a través del uso, no de la traducción.",
+        ur: "\"would,\" \"could,\" اور \"which\" جیسے الفاظ کا اکثر ہسپانوی یا اردو میں کوئی ایک صاف لفظی ترجمہ نہیں ہوتا — انہیں لفظ بہ لفظ ترجمہ کرنے کی کوشش مدد کی بجائے الجھن پیدا کر سکتی ہے۔ ترجمہ کرنے کی بجائے، لفظ کو چند مختصر، حقیقی جملوں میں دکھائیں اور طالب علم سے اسے مکمل شکل میں دہرانے کو کہیں، بالکل اسی طرح جیسے وہ کسی دوست کا نام یاد کرے گا — پہلے پہچان، مطلب استعمال کے ذریعے، ترجمے کے ذریعے نہیں۔",
+      },
+    },
+  },
   vocabulary: {
     title: { en: "The Cognate Bridge", es: "El Puente de Cognados", ur: "مشترک الفاظ کا پل" },
     strategy: {

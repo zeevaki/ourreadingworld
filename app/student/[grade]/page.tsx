@@ -22,6 +22,7 @@ const gradeData: Record<string, GradeReading> = {
 const pillarColors: Record<string, string> = {
   "phonemic-awareness": "#065F46",
   phonics: "#0D9488",
+  "high-frequency-words": "#0891B2",
   fluency: "#059669",
   vocabulary: "#D97706",
   comprehension: "#B45309",
@@ -30,6 +31,7 @@ const pillarColors: Record<string, string> = {
 const pillarEmojis: Record<string, string> = {
   "phonemic-awareness": "👂",
   phonics: "🔤",
+  "high-frequency-words": "⚡",
   fluency: "📖",
   vocabulary: "🤝",
   comprehension: "💡",
@@ -65,7 +67,7 @@ export default function GradePage({ params }: { params: Promise<{ grade: string 
           <h1 className="text-4xl font-black text-gray-800">{gradeInfo.label}</h1>
         </div>
         <p className="text-gray-500 font-semibold mb-8">
-          {lang === "ur" ? "پڑھنے کی مہارتیں — پانچ ستون" : "Reading skills — 5 pillars"}
+          {lang === "ur" ? "پڑھنے کی مہارتیں" : "Reading skills"}
         </p>
 
         {pillars.map((pillar) => {

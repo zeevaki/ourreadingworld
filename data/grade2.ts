@@ -363,6 +363,216 @@ const grade2: GradeReading = {
       ],
     },
     {
+      id: "2-hfw-1",
+      pillar: "high-frequency-words",
+      pillarLabel: {
+        en: "High-Frequency Words",
+        es: "Palabras de Alta Frecuencia",
+        ur: "زیادہ استعمال ہونے والے الفاظ",
+      },
+      title: {
+        en: "Words You See Every Day",
+        es: "Palabras que Ves Todos los Días",
+        ur: "الفاظ جو آپ روز دیکھتے ہیں",
+      },
+      emoji: "⚡",
+      teks: "TEKS 2.2 (TBD)",
+      cambridge: "TBD",
+      learningObjective: {
+        en: "I am learning to instantly recognize common high-frequency words so that I can read smoothly instead of sounding out every letter.",
+        es: "Estoy aprendiendo a reconocer al instante las palabras comunes de alta frecuencia para poder leer con fluidez en lugar de pronunciar cada letra.",
+        ur: "میں عام زیادہ استعمال ہونے والے الفاظ کو فوراً پہچاننا سیکھ رہا ہوں تاکہ ہر حرف کی آواز نکالنے کی بجائے روانی سے پڑھ سکوں۔",
+      },
+      successCriteria: [
+        { en: "I can read this unit's high-frequency words instantly, without sounding them out.", es: "Puedo leer las palabras de alta frecuencia de esta unidad al instante, sin pronunciarlas letra por letra.", ur: "میں اس یونٹ کے زیادہ استعمال ہونے والے الفاظ کو فوراً پڑھ سکتا ہوں، حرف بہ حرف آواز نکالے بغیر۔" },
+        { en: "I can use each word correctly in a full sentence.", es: "Puedo usar cada palabra correctamente en una oración completa.", ur: "میں ہر لفظ کو مکمل جملے میں درست طریقے سے استعمال کر سکتا ہوں۔" },
+        { en: "I can spot these words quickly inside a longer piece of text.", es: "Puedo detectar estas palabras rápidamente dentro de un texto más largo.", ur: "میں ان الفاظ کو لمبے متن کے اندر تیزی سے تلاش کر سکتا ہوں۔" },
+      ],
+      vocabulary: [
+        {
+          id: "because",
+          word: "because",
+          emoji: "🔗",
+          translation: { es: "porque", ur: "کیونکہ" },
+          definition: {
+            en: "A word we use to explain the reason for something.",
+            es: "Una palabra que usamos para explicar la razón de algo.",
+            ur: "ایک لفظ جو ہم کسی چیز کی وجہ بتانے کے لیے استعمال کرتے ہیں۔",
+          },
+          exampleSentence: {
+            en: "We stayed inside because it was raining.",
+            es: "Nos quedamos adentro porque estaba lloviendo.",
+            ur: "ہم اندر رہے کیونکہ بارش ہو رہی تھی۔",
+          },
+        },
+        {
+          id: "could",
+          word: "could",
+          emoji: "🔑",
+          translation: { es: "podía / podría", ur: "سکتا تھا" },
+          definition: {
+            en: "A word that shows something was possible, or asks a question politely.",
+            es: "Una palabra que muestra que algo era posible, o hace una pregunta con cortesía.",
+            ur: "ایک لفظ جو ظاہر کرتا ہے کہ کچھ ممکن تھا، یا شائستگی سے سوال پوچھتا ہے۔",
+          },
+          exampleSentence: {
+            en: "Could you please pass the pencil?",
+            es: "¿Podrías pasarme el lápiz, por favor?",
+            ur: "کیا آپ پنسل دے سکتے ہیں؟",
+          },
+        },
+        {
+          id: "their",
+          word: "their",
+          emoji: "👨‍👩‍👧‍👦",
+          translation: { es: "su / sus (de ellos)", ur: "ان کا / ان کی" },
+          definition: {
+            en: "A word that shows something belongs to more than one person.",
+            es: "Una palabra que muestra que algo pertenece a más de una persona.",
+            ur: "ایک لفظ جو ظاہر کرتا ہے کہ کوئی چیز ایک سے زیادہ لوگوں کی ہے۔",
+          },
+          exampleSentence: {
+            en: "The students packed their backpacks for the trip.",
+            es: "Los estudiantes empacaron sus mochilas para el viaje.",
+            ur: "طلبہ نے سفر کے لیے اپنے بستے پیک کیے۔",
+          },
+        },
+        {
+          id: "would",
+          word: "would",
+          emoji: "🌀",
+          translation: { es: "-ía (querría, iría)", ur: "گا / گی" },
+          definition: {
+            en: "A word we use to talk about something that might happen, or something that used to happen again and again.",
+            es: "Una palabra que usamos para hablar de algo que podría pasar, o algo que solía pasar una y otra vez.",
+            ur: "ایک لفظ جو ہم کسی ایسی چیز کے بارے میں بات کرنے کے لیے استعمال کرتے ہیں جو ہو سکتی ہے، یا جو پہلے بار بار ہوتی تھی۔",
+          },
+          exampleSentence: {
+            en: "I would love to visit the zoo this weekend.",
+            es: "Me encantaría visitar el zoológico este fin de semana.",
+            ur: "مجھے اس ہفتے چڑیا گھر جانا اچھا لگے گا۔",
+          },
+        },
+        {
+          id: "which",
+          word: "which",
+          emoji: "❓",
+          translation: { es: "cuál / cuáles", ur: "کونسا" },
+          definition: {
+            en: "A word we use to ask about or point to one choice among several.",
+            es: "Una palabra que usamos para preguntar sobre, o señalar, una opción entre varias.",
+            ur: "ایک لفظ جو ہم کئی چیزوں میں سے ایک کے بارے میں پوچھنے یا اشارہ کرنے کے لیے استعمال کرتے ہیں۔",
+          },
+          exampleSentence: {
+            en: "Which book would you like to read first?",
+            es: "¿Cuál libro te gustaría leer primero?",
+            ur: "آپ پہلے کونسی کتاب پڑھنا پسند کریں گے؟",
+          },
+        },
+        {
+          id: "were",
+          word: "were",
+          emoji: "⏪",
+          translation: { es: "eran / estaban", ur: "تھے" },
+          definition: {
+            en: "The past-tense form of \"are,\" used when talking about more than one person or thing.",
+            es: "La forma en pasado de \"are\", usada al hablar de más de una persona o cosa.",
+            ur: "\"are\" کی ماضی کی شکل، جو ایک سے زیادہ لوگوں یا چیزوں کے بارے میں بات کرتے وقت استعمال ہوتی ہے۔",
+          },
+          exampleSentence: {
+            en: "The birds were singing in the tree this morning.",
+            es: "Los pájaros estaban cantando en el árbol esta mañana.",
+            ur: "آج صبح پرندے درخت پر گا رہے تھے۔",
+          },
+        },
+      ],
+      lesson: {
+        en: `Some words show up again and again in almost everything you read — words like *because*, *could*, and *which*. These are called **high-frequency words**, and some of them don't follow the regular sounding-out rules, so the fastest way to read them is to **recognize the whole word by sight** — like recognizing a friend's face.\n\nHere's the trick: instead of sounding out every letter, look at the whole shape of the word and say it in one quick beat.\n\n• because — one quick word, not b-e-c-a-u-s-e sound by sound\n• could — say it fast, like "kood"\n• their — notice the tricky "ei" — it doesn't sound like it looks!\n\nThe more you see these words in real sentences, the faster you'll recognize them — like how you don't have to think hard to recognize your own name.`,
+        es: `Algunas palabras aparecen una y otra vez en casi todo lo que lees — palabras como *because*, *could* y *which*. Se llaman **palabras de alta frecuencia**, y algunas no siguen las reglas normales de sonido, así que la forma más rápida de leerlas es **reconocer la palabra completa a simple vista** — como reconoces la cara de un amigo.\n\nAquí está el truco: en lugar de pronunciar cada letra, mira la forma completa de la palabra y dila de un solo golpe rápido.\n\n• because — una palabra rápida, no letra por letra\n• could — dila rápido, como "kud"\n• their — fíjate en el "ei" complicado — ¡no suena como se ve!\n\nMientras más veces veas estas palabras en oraciones reales, más rápido las reconocerás — como no tienes que pensar mucho para reconocer tu propio nombre.`,
+        ur: `کچھ الفاظ تقریباً ہر چیز میں بار بار آتے ہیں جو آپ پڑھتے ہیں — جیسے *because*، *could*، اور *which*۔ انہیں **زیادہ استعمال ہونے والے الفاظ** کہا جاتا ہے، اور ان میں سے کچھ عام آواز کے اصولوں کی پیروی نہیں کرتے، اس لیے انہیں پڑھنے کا تیز ترین طریقہ یہ ہے کہ **پورے لفظ کو دیکھ کر پہچانیں** — جیسے آپ کسی دوست کا چہرہ پہچانتے ہیں۔\n\nیہ رہا نسخہ: ہر حرف کی آواز نکالنے کی بجائے، لفظ کی پوری شکل دیکھیں اور اسے ایک تیز جھٹکے میں بولیں۔\n\n• because — ایک تیز لفظ، حرف بہ حرف نہیں\n• could — اسے تیزی سے بولیں\n• their — مشکل "ei" پر غور کریں — یہ ویسا نہیں بولا جاتا جیسا لکھا جاتا ہے!\n\nجتنی بار آپ یہ الفاظ حقیقی جملوں میں دیکھیں گے، اتنی ہی تیزی سے آپ انہیں پہچانیں گے — جیسے آپ کو اپنا نام پہچاننے کے لیے زیادہ سوچنا نہیں پڑتا۔`,
+      },
+      exercises: [
+        {
+          id: "e1",
+          type: "multiple-choice",
+          prompt: {
+            en: "Which word means 'belonging to more than one person'?",
+            es: "¿Qué palabra significa 'que pertenece a más de una persona'?",
+            ur: "کون سا لفظ 'ایک سے زیادہ لوگوں کا' ظاہر کرتا ہے؟",
+          },
+          choices: [
+            { en: "their", es: "their", ur: "their" },
+            { en: "would", es: "would", ur: "would" },
+            { en: "which", es: "which", ur: "which" },
+            { en: "were", es: "were", ur: "were" },
+          ],
+          correctIndex: 0,
+        },
+        {
+          id: "e2",
+          type: "multiple-choice",
+          prompt: {
+            en: "We stayed inside ___ it was raining.",
+            es: "Nos quedamos adentro ___ estaba lloviendo.",
+            ur: "ہم اندر رہے ___ بارش ہو رہی تھی۔",
+          },
+          choices: [
+            { en: "which", es: "which", ur: "which" },
+            { en: "because", es: "because", ur: "because" },
+            { en: "were", es: "were", ur: "were" },
+            { en: "could", es: "could", ur: "could" },
+          ],
+          correctIndex: 1,
+        },
+        {
+          id: "e3",
+          type: "true-false",
+          prompt: {
+            en: "The word \"could\" can be used to ask a question politely.",
+            es: "La palabra \"could\" se puede usar para hacer una pregunta con cortesía.",
+            ur: "لفظ \"could\" شائستگی سے سوال پوچھنے کے لیے استعمال ہو سکتا ہے۔",
+          },
+          choices: [
+            { en: "True", es: "Verdadero", ur: "سچ" },
+            { en: "False", es: "Falso", ur: "غلط" },
+          ],
+          correctIndex: 0,
+        },
+      ],
+      quiz: [
+        {
+          id: "q1",
+          type: "multiple-choice",
+          prompt: {
+            en: "___ book would you like to read first?",
+            es: "¿___ libro te gustaría leer primero?",
+            ur: "آپ پہلے ___ کتاب پڑھنا پسند کریں گے؟",
+          },
+          choices: [
+            { en: "Were", es: "Were", ur: "Were" },
+            { en: "Which", es: "Which", ur: "Which" },
+            { en: "Their", es: "Their", ur: "Their" },
+            { en: "Could", es: "Could", ur: "Could" },
+          ],
+          correctIndex: 1,
+        },
+        {
+          id: "q2",
+          type: "true-false",
+          prompt: {
+            en: "High-frequency words should always be sounded out letter by letter.",
+            es: "Las palabras de alta frecuencia siempre deben pronunciarse letra por letra.",
+            ur: "زیادہ استعمال ہونے والے الفاظ کو ہمیشہ حرف بہ حرف آواز میں پڑھنا چاہیے۔",
+          },
+          choices: [
+            { en: "True", es: "Verdadero", ur: "سچ" },
+            { en: "False", es: "Falso", ur: "غلط" },
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+    {
       id: "2-fl-1",
       pillar: "fluency",
       pillarLabel: {
