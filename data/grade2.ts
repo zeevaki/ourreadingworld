@@ -1105,6 +1105,19 @@ const grade2: GradeReading = {
           correctIndex: 0,
         },
       ],
+      creativePrompt: {
+        promptType: "story",
+        title: {
+          en: "Write Your Own Story",
+          es: "Escribe tu Propio Cuento",
+          ur: "اپنی کہانی لکھو",
+        },
+        instructions: {
+          en: "Every good story has a beginning, a middle, and an end. Write or tell a grown-up your own short story with all three parts — it can be about anything you like! Try using the words first, then, and in the end to keep your parts in order.",
+          es: "Todo buen cuento tiene un principio, un medio y un final. Escribe o cuéntale a un adulto tu propio cuento corto con las tres partes — ¡puede ser sobre lo que quieras! Intenta usar las palabras primero, luego, y al final para mantener tus partes en orden.",
+          ur: "ہر اچھی کہانی کی ایک شروعات، درمیان، اور اختتام ہوتا ہے۔ کسی بڑے کو اپنی مختصر کہانی لکھ کر دکھاؤ یا سناؤ جس میں تینوں حصے ہوں — یہ کسی بھی چیز کے بارے میں ہو سکتی ہے! اپنے حصوں کو ترتیب میں رکھنے کے لیے پہلے، پھر، اور آخر میں جیسے الفاظ استعمال کرنے کی کوشش کرو۔",
+        },
+      },
     },
   ],
 };

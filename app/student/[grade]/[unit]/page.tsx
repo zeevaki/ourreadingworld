@@ -11,7 +11,7 @@ import grade4 from "@/data/grade4";
 import grade5 from "@/data/grade5";
 import { GradeReading, ReadingUnit, ReadingQuestion } from "@/data/types";
 import {
-  ScrollText, BookOpen, GraduationCap, PencilLine, ClipboardCheck, CheckCircle2,
+  ScrollText, BookOpen, GraduationCap, PencilLine, ClipboardCheck, CheckCircle2, Palette,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -212,6 +212,22 @@ function LessonTab({ unit, lang }: { unit: ReadingUnit; lang: "es" | "ur" }) {
           {renderLines(unit.lesson[lang])}
         </div>
       </div>
+      {unit.creativePrompt && (
+        <div className="bg-white rounded-2xl p-5 shadow border-2 border-dashed border-accent">
+          <div className="flex items-center gap-2 mb-2">
+            <Palette size={18} className="text-accent" />
+            <span className="font-black text-accent">{unit.creativePrompt.title.en}</span>
+            <SpeakButton text={cleanForTTS(unit.creativePrompt.instructions.en)} lang="en-US" size="sm" />
+          </div>
+          <p className="text-gray-700 text-sm leading-relaxed mb-2">{unit.creativePrompt.instructions.en}</p>
+          <p
+            className="text-gray-600 text-sm leading-relaxed font-semibold"
+            dir={lang === "ur" ? "rtl" : undefined}
+          >
+            {unit.creativePrompt.instructions[lang]}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

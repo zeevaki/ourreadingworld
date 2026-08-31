@@ -29,6 +29,12 @@ export type ReadingQuestion = {
   correctIndex: number;
 };
 
+export type CreativePrompt = {
+  promptType: "poem" | "story" | "illustration" | "shape-art";
+  title: BilingualText;
+  instructions: BilingualText;
+};
+
 export type ReadingUnit = {
   id: string;
   pillar: ReadingPillar;
@@ -43,6 +49,7 @@ export type ReadingUnit = {
   lesson: BilingualText;
   exercises: ReadingQuestion[];
   quiz: ReadingQuestion[];
+  creativePrompt?: CreativePrompt;
 };
 
 export type GradeReading = {
